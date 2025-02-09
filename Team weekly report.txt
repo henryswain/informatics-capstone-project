@@ -1,1 +1,41 @@
-Team weekly report* Team members and team number* Team progress/achieved things/accomplished tasks/stories completed* Team blockers/issues* Team tasks for next week* Meeting minutes - details of meetings* Team member 1:o Stories completedo Progress reporto Plan for next week* Team member 2:o Stories completedo Progress reporto Plan for next week* Team member 3:o Stories completedo Progress reporto Plan for next week* Team member 4:o Stories completedo Progress reporto Plan for next week
+Team weekly report
+
+* Team members and team number
+    Team 3: Henry, Marcus, Ryan, Tommy, and Topher
+
+* Team progress/achieved things/accomplished tasks/stories completed
+    Created our repository and established how we want to communicate for this project
+
+* Team blockers/issues
+
+* Team tasks for next week
+
+* Meeting minutes - details of meetings
+
+* Team member 1:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 2:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 3:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 4:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 5: Topher
+o Stories completed
+    Edited this document in our repository
+o Progress report
+    Hopefully it works
+o Plan for next week
+    Probably edit some more documents
