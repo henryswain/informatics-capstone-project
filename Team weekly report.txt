@@ -17,10 +17,13 @@ o Stories completed
 o Progress report
 o Plan for next week
 
-* Team member 2:
+* Team member 2: Marcus Bodnar
 o Stories completed
+    Edited doc 
 o Progress report
+    Fingers crossed
 o Plan for next week
+    Go to class and figure it out
 
 * Team member 3:
 o Stories completed
