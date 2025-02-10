@@ -1,0 +1,38 @@
+Team weekly report
+
+* Team members and team number
+team 3 - Henry, Marcus, Tommy
+
+* Team progress/achieved things/accomplished tasks/stories completed
+
+* Team blockers/issues
+
+* Team tasks for next week
+- create basic layout for hompage
+- create navbar with provile icon on to right. clicking that icon will open modal with form to add profile information.
+* Meeting minutes - details of meetings
+
+* Team member 1:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 2:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 3:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 4:
+o Stories completed
+o Progress report
+o Plan for next week
+
+
+
+
+
