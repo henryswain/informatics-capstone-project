@@ -25,10 +25,13 @@ o Progress report
 o Plan for next week
     Go to class and figure it out
 
-* Team member 3:
+* Team member 3: Tommy Le
 o Stories completed
+    Edited Doc
 o Progress report
+    Done
 o Plan for next week
+    More HW/Group Project Work
 
 * Team member 4: Ryan Witcraft
 o Stories completed
