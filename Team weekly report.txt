@@ -12,10 +12,14 @@ Team weekly report
 
 * Meeting minutes - details of meetings
 
-* Team member 1:
+* Team member 1: Henry Swain
 o Stories completed
+    - created repository
+    - edited doc
 o Progress report
+    - success
 o Plan for next week
+    - start with bulk of project
 
 * Team member 2: Marcus Bodnar
 o Stories completed
