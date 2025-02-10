@@ -27,10 +27,13 @@ o Stories completed
 o Progress report
 o Plan for next week
 
-* Team member 4:
+* Team member 4: Ryan Witcraft
 o Stories completed
+    Edited Doc
 o Progress report
+    Done
 o Plan for next week
+    More HW/Group project work
 
 * Team member 5: Topher
 o Stories completed
