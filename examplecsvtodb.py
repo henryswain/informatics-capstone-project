@@ -4,9 +4,9 @@ import csv, pymysql
 #Check it worked before moving on
 db=pymysql.connect(
   host = 'webdev.divms.uiowa.edu',
-  user = 'tle18',
-  passwd = 'TJS0pRDKUJanuenakqZZ',
-  db='cs3910_tle18')
+  user = '',
+  passwd = '',
+  db='')
 #print ("connected")
 #Create table (if doen't exist already)
 #In this example has column Name and column gpa
