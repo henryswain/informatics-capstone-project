@@ -63,6 +63,47 @@
       </div>
     </nav>
 
+    <aside>
+    <h2>Filter Your Search</h2>
+    <div id="app">
+        <label for="Job_Type">Job Type:</label>
+        <select v-model="selectedJobType" id="Job_Type">
+            <option value="all">All Job Types</option>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
+            <option value="Freelance">Freelance</option>
+        </select>
+
+        <label for="Industry">Industry:</label>
+        <select v-model="selectedIndustry" id="Industry">
+            <option value="all">All Industries</option>
+            <option value="Technology">Technology</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Finance">Finance</option>
+            <option value="Education">Education</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Retail">Retail</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Government">Government</option>
+            <option value="Manufacturing">Manufacturing</option>
+        </select>
+
+        <label for="Experience_Level">Experience Level:</label>
+        <select v-model="selectedExperience" id="Experience_Level">
+            <option value="all">All Levels</option>
+            <option value="Entry-Level">Entry-Level</option>
+            <option value="Mid-Level">Mid-Level</option>
+            <option value="Senior-Level">Senior-Level</option>
+            <option value="Executive">Executive</option>
+        </select>
+
+        <button @click.prevent="filterJobs">Find Jobs</button>
+    </div>
+    </aside>
+
     <!-- This is where your routed page will be displayed -->
     <router-view />
   </div>
