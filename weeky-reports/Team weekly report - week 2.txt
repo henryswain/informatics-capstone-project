@@ -12,10 +12,18 @@ team 3 - Henry, Marcus, Tommy
 - create navbar with provile icon on to right. clicking that icon will open modal with form to add profile information.
 * Meeting minutes - details of meetings
 
-* Team member 1:
+* Team member 1: Henry Swain
 o Stories completed
-o Progress report
+- initiallized vue and bootstrap in repository with basic navbar skeleton
+- loaded necessary columns from csv job data into table on webdev database
+o Progress report 
+ The above was done successfully, but I keep getting permission denied errors when I try to cd inside
+ the webdev directory (I think I accidentally locked myself out when using -R flag in my chmod command, or by running it from the wrong directory), 
+ which puts my progress towards getting the data into the site from the table on hold, until I get advice from Professor Kleiman.
 o Plan for next week
+- load job data from webdev db into website.
+- get basic job filtering incorporated.
+
 
 * Team member 2:
 o Stories completed
