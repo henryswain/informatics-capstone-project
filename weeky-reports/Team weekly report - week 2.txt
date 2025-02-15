@@ -1,7 +1,7 @@
 Team weekly report
 
 * Team members and team number
-team 3 - Henry, Marcus, Tommy
+team 3 - Henry, Marcus, Tommy, Ryan
 
 * Team progress/achieved things/accomplished tasks/stories completed
 
@@ -30,10 +30,17 @@ o Stories completed
 o Progress report
 o Plan for next week
 
-* Team member 3:
+* Team member 3: Ryan Witcraft
 o Stories completed
+- Started planning for profile page
+- Added forms for user input to change profile information
 o Progress report
+Got at least a baseline made for how the profile page is going to be set up. I still have to figure out a way to use Amazon AWS or some other
+form of storing information for the user with Vue. 
 o Plan for next week
+- Refine layout of the profile page
+- Higher functionality for the profile page
+- Possibly look more into the storing of profile information
 
 * Team member 4:
 o Stories completed
