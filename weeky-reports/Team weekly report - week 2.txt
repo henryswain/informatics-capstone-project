@@ -53,8 +53,9 @@ o Stories completed
     - Debugged the WSGI file for displaying our database table's contents and got it working so we can now view data in a relatively clean manner
 o Progress report
     - Achieved my goal of completing the WSGI file though I mainly acted as a debugger as I didn't have much time this week to begin    work myself
+    - Began work on the ability to click on a button to expand individual entries in the dataset to learn more about them
 o Plan for next week
-    - Create a callable function that allows us to query one specific entry (presumable using the Job_ID column entry) and make a way for this to be accessed from each individual listing in the larger list
+    - Finish implementing query string parameters to the page for displaying individual entries. As it stands I'm hung up on getting the string from the URL and exposing it to the python environment so it can be included in the sql query.
 
 
 
