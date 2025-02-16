@@ -9,7 +9,7 @@ def application(environ, start_response):
     <div class="container">'''
 
     output += '''<script>
-    const url = 'https://webdev.divms.uiowa.edu/webdev/cs3910/henryswain/informatics-captstone-project/job.wsgi?'
+    const url = 'https://webdev.divms.uiowa.edu/webdev/cs3910/henryswain/informatics-capstone-project/job.wsgi?'
 
     function LinkToJob(jobID) {
         const searchParams = new URLSearchParams({Job_ID: jobID});
