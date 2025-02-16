@@ -63,7 +63,10 @@ def application(environ, start_response):
     dbcnx.close ()
 
     response_headers = [('Content-type', 'text/html'),
-                        ('Content-Length', str(len(output)))]
+                        ('Content-Length', str(len(output))),
+                        ('Access-Control-Allow-Origin', '*'),
+                        ('Access-Control-Allow-Methods', 'GET'),
+                        ('Access-Control-Allow-Headers', 'Content-Type')]
 
     start_response(status, response_headers)
     output2 = output.encode('utf-8')
