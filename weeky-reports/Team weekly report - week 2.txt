@@ -16,13 +16,17 @@ team 3 - Henry, Marcus, Tommy, Ryan, and Topher
 o Stories completed
 - initiallized vue and bootstrap in repository with basic navbar skeleton
 - loaded necessary columns from csv job data into table on webdev database
+- created first draft (not working) of wsgi file for querying all jobs.
+- linked jobview.wsgi (Topher created this as a fixed version of my failed attempt) to FindJobs page in vue app
 o Progress report 
- The above was done successfully, but I keep getting permission denied errors when I try to cd inside
- the webdev directory (I think I accidentally locked myself out when using -R flag in my chmod command, or by running it from the wrong directory), 
- which puts my progress towards getting the data into the site from the table on hold, until I get advice from Professor Kleiman.
+ half of my work was more starting parts of the page (vue and bootstrap initiallization, and failed attempt at the wsgi file), 
+ but I was able to successfully populate the a table in the webdev database, and link Tophers fix to the vue page, 
+ but singificant work still needs to be done for job filtering. 
+ Additionally, the vue page won't load on webdev.
 o Plan for next week
-- load job data from webdev db into website.
-- get basic job filtering incorporated.
+- clean up the way the list of jobs looks in the vue page
+- get at least basic filtering of jobs working
+- figure out why vue page won't load on webdev
 
 
 * Team member 2:
