@@ -1,7 +1,7 @@
 Team weekly report
 
 * Team members and team number
-team 3 - Henry, Marcus, Tommy, Ryan
+team 3 - Henry, Marcus, Tommy, Ryan, and Topher
 
 * Team progress/achieved things/accomplished tasks/stories completed
 
@@ -30,7 +30,12 @@ o Stories completed
 o Progress report
 o Plan for next week
 
-* Team member 3: Ryan Witcraft
+* Team member 3:
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 4: Ryan Witcraft
 o Stories completed
 - Started planning for profile page
 - Added forms for user input to change profile information
@@ -42,10 +47,14 @@ o Plan for next week
 - Higher functionality for the profile page
 - Possibly look more into the storing of profile information
 
-* Team member 4:
+* Team member 5: Topher Wallerich
 o Stories completed
+    - Worked a bit on the CSV to database python file but was having issues with my machine so mainly just offered occasional ideas
+    - Debugged the WSGI file for displaying our database table's contents and got it working so we can now view data in a relatively clean manner
 o Progress report
+    - Achieved my goal of completing the WSGI file though I mainly acted as a debugger as I didn't have much time this week to begin    work myself
 o Plan for next week
+    - Create a callable function that allows us to query one specific entry (presumable using the Job_ID column entry) and make a way for this to be accessed from each individual listing in the larger list
 
 
 
