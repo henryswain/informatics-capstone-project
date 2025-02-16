@@ -5,7 +5,7 @@ def application(environ, start_response):
     # connect
     dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="henryswain",passwd="AgRZXxndJYXOIStHrDqk",db="cs3910_henryswain")
    
-    sqlquery="""SELECT * FROM courses;"""
+    sqlquery="""SELECT * FROM nyc_jobs;"""
    
     # create a database cursor
     cursor = dbcnx.cursor() 
