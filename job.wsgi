@@ -27,7 +27,7 @@ def application(environ, start_response):
     # ^^^ possibly (probably) unneeded
 
     # connect
-    dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="hawkid",passwd="yourpasshere",db="cs3910_hawkid")
+    dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="henryswain",passwd="AgRZXxndJYXOIStHrDqk",db="cs3910_henryswain")
    
     sqlquery=f"""SELECT Job_ID, Agency, Number_Of_Positions, Business_Title, Job_Description, Minimum_Qual_Requirements, Prefered_Skills FROM nyc_jobs WHERE Job_ID = {job_id};"""
    
