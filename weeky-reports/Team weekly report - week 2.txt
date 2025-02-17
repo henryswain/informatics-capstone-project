@@ -42,13 +42,23 @@ o Progress report
   have to tie the job filterings in but got the first step done.
 o Plan for next week
  - Talk with the team and take out some of the stuff in the nav bar
- -Get the filterings to work for the jobs
+ -Get the filtering work for the jobs
  - Work on the post jobs too if we go that route.
 
-* Team member 3:
+* Team member 3: Tommy Le
 o Stories completed
+- Redesigned navbar to include all the buttons and parts needed for the user
+    including better user accessiblity, better look/design
+- Added the filter to sort through industries, job types and fields
+- Modified navbar to include sign up, login, and easy accessibility for users
 o Progress report
+- Main layout of the job website has been developed, more styling needs to be implemented and figuring
+out priorities for the website are needed. Eventually filtering system needs to be cleaned up and modified
+to fit the website better.
 o Plan for next week
+    Help refine layout of the website
+    Help with storage of information and data
+    Discussion of what to keep in the navbar and remove
 
 * Team member 4: Ryan Witcraft
 o Stories completed
