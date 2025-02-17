@@ -11,6 +11,10 @@ Unless we make a informative guide for the homepage idk So we can keep the find 
  Just informative stuff
 
 I will add more tomorrow/friday. Me sleepy
+
+I wonder if we should make instead of a find jobs button we can do a
+box checker system and everytime we check a box it would refresh the jobs
+that fall under those categories 
 Topher Notes:
 Tommy Notes:
 Henry Notes:

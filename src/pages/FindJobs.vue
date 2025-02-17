@@ -41,7 +41,7 @@ async function fetchOwnContent() {
   }
 }
 
-// In Vue, use onMounted instead of addEventListener
+
 onMounted(() => {
   fetchOwnContent()
 })

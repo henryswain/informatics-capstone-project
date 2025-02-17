@@ -29,10 +29,21 @@ o Plan for next week
 - figure out why vue page won't load on webdev
 
 
-* Team member 2:
+* Team member 2: Marcus Bodnar
 o Stories completed
+-Finished the job layout page till we get more information
+-Got the find-jobs page created with updated job filtering
+- added a router.js to make pages not fully re-render
+-implemented the router in the other filters
+-cleaned up initial styling in App.vue to make it look better
 o Progress report
+  Worked on the page layout and functionality of the pages to get a good basis of them.
+  Got a good amount done and cleaned it up to make it look nicer. Still eventually
+  have to tie the job filterings in but got the first step done.
 o Plan for next week
+ - Talk with the team and take out some of the stuff in the nav bar
+ -Get the filterings to work for the jobs
+ - Work on the post jobs too if we go that route.
 
 * Team member 3:
 o Stories completed
