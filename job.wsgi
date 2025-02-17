@@ -29,8 +29,10 @@ def application(environ, start_response):
     # connect
     dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="henryswain",passwd="AgRZXxndJYXOIStHrDqk",db="cs3910_henryswain")
    
-    sqlquery=f"""SELECT Job_ID, Agency, Number_Of_Positions, Business_Title, Job_Description, Minimum_Qual_Requirements, Prefered_Skills FROM nyc_jobs WHERE Job_ID = {job_id};"""
-   
+    sqlquery = """SELECT Job_ID, Agency, Number_Of_Positions, Business_Title, Job_Description, Minimum_Qual_Requirements, Prefered_Skills FROM nyc_jobs WHERE Job_ID = """
+    sqlquery += """'%s';"""
+    sqlquery %= job_id
+
     # create a database cursor
     cursor = dbcnx.cursor() 
    
