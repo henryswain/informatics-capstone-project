@@ -25,7 +25,7 @@ def application(environ, start_response):
     # connect
     dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="henryswain",passwd="AgRZXxndJYXOIStHrDqk",db="cs3910_henryswain")
    
-    sqlquery="""SELECT Job_ID, Agency, Number_Of_Positions, Business_Title, Job_Description, Minimum_Qual_Requirements, Prefered_Skills FROM nyc_jobs LIMIT 10;"""
+    sqlquery="""SELECT Job_ID, Civil_Service_Title, Full-Time/Part-Time_indicator, Salary_Range_From, Salary_Range_To, Salary_Frequency, Work_Location FROM nyc_jobs LIMIT 10;"""
    
     # create a database cursor
     cursor = dbcnx.cursor() 
@@ -40,18 +40,18 @@ def application(environ, start_response):
     for x in range(0,numrows):
        row = cursor.fetchone()
        output += '<div class="card"><h5 class="card-header">%s</h5>\n'
-       output %= row[3]
+       output %= row[1]
        output += '<div class="card-body">\n'
-       output += '<h5>Job Description</h5>'
-       output += '<p class="card-text">%s</p>\n'
-       output %= row[4]
-       output += '<h5>Minimum Qual Requirements</h5>'
-       output += '<p class="card-text">%s</p>\n'
-       output %= row[5]
-       output += '<h5>Prefered Skills</h5>'
-       output += '<p class="card-text">%s</p>\n'
-       output %= row[6]
-       output += '<button id="button_%s"'
+       output += f'<p class="card-text">{row[2]}</p>\n'
+       output += f'<p class="card-text">${row[3]}-{row[4]}</p>\n'
+       output += f'<p class="card-text">{row[6]}</p>\n'
+
+       <!-- output %= row[2] -->
+       <!-- output += '<p class="card-text">%s</p>\n' -->
+       <!-- output %= row[3] -->
+       <!-- output += '<p class="card-text">%s</p>\n'
+       output %= row[4] -->
+       output += '<button class="btn-primary" id="button_%s"'
        output %= row[0]
        output += 'onclick=LinkToJob(%s)>Learn More</button>'
        output %= row[0]
