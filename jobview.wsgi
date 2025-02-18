@@ -42,10 +42,16 @@ def application(environ, start_response):
        output += '<div class="card"><h5 class="card-header">%s</h5>\n'
        output %= row[1]
        output += '<div class="card-body">\n'
-       output += f'<p class="card-text">{row[2]}</p>\n'
-       output += f'<p class="card-text">${row[3]}-{row[4]}</p>\n'
-       output += f'<p class="card-text">{row[6]}</p>\n'
-       output += f'<button class="btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
+       if row[5] == "Hourly" and row[2] == "F":
+           output += f'<p class="card-text">${row[3]}-{row[4]}/hr &#8226 Full-time</p>\n'
+       elif row[5] == "Hourly" and row[2] == "P":
+           output += f'<p class="card-text">${row[3]}-{row[4]}/hr &#8226 Part-time</p>\n'
+       elif row[5] == "Annual" and row[2] == "F":
+           output += f'<p class="card-text">${row[3]}-{row[4]}/yr &#8226 Full-time</p>\n'
+       elif row[5] == "Annual" and row[2] == "P":
+           output += f'<p class="card-text">${row[3]}-{row[4]}/yr &#8226 Part-time</p>\n'
+       output += f'<p class="card-text">Location: {row[6]}</p>\n'
+       output += f'<button class="btn btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
        output += "</div>\n</div>"
 
     output += "</div>"
