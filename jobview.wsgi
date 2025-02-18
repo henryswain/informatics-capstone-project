@@ -45,16 +45,6 @@ def application(environ, start_response):
        output += f'<p class="card-text">{row[2]}</p>\n'
        output += f'<p class="card-text">${row[3]}-{row[4]}</p>\n'
        output += f'<p class="card-text">{row[6]}</p>\n'
-
-       <!-- output %= row[2] -->
-       <!-- output += '<p class="card-text">%s</p>\n' -->
-       <!-- output %= row[3] -->
-       <!-- output += '<p class="card-text">%s</p>\n'
-       output %= row[4] -->
-       <!-- output += '<button class="btn-primary" id="button_%s"'
-       output %= row[0]
-       output += 'onclick=LinkToJob(%s)>Learn More</button>'
-       output %= row[0] -->
        output += f'<button class="btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
        output += "</div>\n</div>"
 
