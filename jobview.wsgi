@@ -25,7 +25,7 @@ def application(environ, start_response):
     # connect
     dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="henryswain",passwd="AgRZXxndJYXOIStHrDqk",db="cs3910_henryswain")
    
-    sqlquery="""SELECT Job_ID, Civil_Service_Title, Full-Time/Part-Time_indicator, Salary_Range_From, Salary_Range_To, Salary_Frequency, Work_Location FROM nyc_jobs LIMIT 10;"""
+    sqlquery="""SELECT Job_ID, Civil_Service_Title, `Full-Time/Part-Time_indicator`, Salary_Range_From, Salary_Range_To, Salary_Frequency, Work_Location FROM nyc_jobs LIMIT 10;"""
    
     # create a database cursor
     cursor = dbcnx.cursor() 
@@ -51,10 +51,11 @@ def application(environ, start_response):
        <!-- output %= row[3] -->
        <!-- output += '<p class="card-text">%s</p>\n'
        output %= row[4] -->
-       output += '<button class="btn-primary" id="button_%s"'
+       <!-- output += '<button class="btn-primary" id="button_%s"'
        output %= row[0]
        output += 'onclick=LinkToJob(%s)>Learn More</button>'
-       output %= row[0]
+       output %= row[0] -->
+       output += f'<button class="btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
        output += "</div>\n</div>"
 
     output += "</div>"
