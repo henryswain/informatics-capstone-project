@@ -1,6 +1,5 @@
 <template>
   <div class="find-jobs-page">
-    <h1 class="mb-4">Find Jobs</h1>
     <div v-html="html"></div>
     <!-- <div class="jobs-list">
       <div v-for="job in jobs" :key="job.id" class="job-card">

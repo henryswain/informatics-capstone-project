@@ -17,23 +17,14 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/find-jobs">Find Jobs</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/post-job">Post a Job</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/companies">Companies</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/career-advice">Career Advice</router-link>
-            </li>
           </ul>
           <form class="d-flex me-3">
             <input class="form-control me-2" type="search" placeholder="Search jobs, companies..." />
             <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
           <div class="d-flex align-items-center">
-            <button class="btn btn-outline-light me-2">Login</button>
-            <button class="btn btn-warning">Sign Up</button>
+           <!-- <button class="btn btn-outline-light me-2">Login</button> -->
+            <!-- <button class="btn btn-warning">Sign Up</button> -->
             <div class="dropdown ms-3">
               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                 <img src="@/assets/user.png" style="max-height: 30px;" alt="User" class="rounded-circle" />
