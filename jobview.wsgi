@@ -25,7 +25,7 @@ def application(environ, start_response):
     # connect
     dbcnx = pymysql.connect(host="webdev.divms.uiowa.edu",port=3306,user="henryswain",passwd="AgRZXxndJYXOIStHrDqk",db="cs3910_henryswain")
    
-    sqlquery="""SELECT Job_ID, Civil_Service_Title, `Full-Time/Part-Time_indicator`, Salary_Range_From, Salary_Range_To, Salary_Frequency, Work_Location FROM nyc_jobs LIMIT 10;"""
+    sqlquery="""SELECT Job_ID, Civil_Service_Title, `Full-Time/Part-Time_indicator`, Salary_Range_From, Salary_Range_To, Salary_Frequency, Work_Location, Job_Description, Minimum_Qual_Requirements, Prefered_Skills, To_Apply FROM nyc_jobs LIMIT 10;"""
    
     # create a database cursor
     cursor = dbcnx.cursor() 
@@ -51,7 +51,37 @@ def application(environ, start_response):
        elif row[5] == "Annual" and row[2] == "P":
            output += f'<p class="card-text">${row[3]}-{row[4]}/yr &#8226 Part-time</p>\n'
        output += f'<p class="card-text">Location: {row[6]}</p>\n'
-       output += f'<button class="btn btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
+    #    output += f'<button class="btn btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
+       output += f"""<!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="button_{row[0]}" data-bs-target="#exampleModal">
+            Learn More
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="more information" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{row[1]}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Job Description</h5>
+                <p>{row[7]}</p>
+                <h5>Basic Qual Requirements</h5>
+                <p>{row[8]}</p>
+                <h5>Prefered Skills</h5>
+                <p>{row[9]}</p>
+                <h5>To Apply</h5>
+                <p>{row[10]}</p>
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>'"""
        output += "</div>\n</div>"
 
     output += "</div>"
