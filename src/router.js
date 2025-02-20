@@ -1,5 +1,5 @@
 
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import FindJobs from './pages/FindJobs.vue'; 
 import ProfilePage from './pages/ProfilePage.vue';
 
@@ -25,7 +25,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory("/informatics-capstone-project/"),
+  history: createWebHashHistory("/informatics-capstone-project/"),
   routes,
 });
 
