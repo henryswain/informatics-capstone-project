@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- made nav bar hug the top of page-->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top">
       <div class="container-fluid">
         <router-link class="navbar-brand fw-bold" to="/">CareerQuest</router-link>
@@ -23,8 +23,6 @@
             <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
           <div class="d-flex align-items-center">
-           <!-- <button class="btn btn-outline-light me-2">Login</button> -->
-            <!-- <button class="btn btn-warning">Sign Up</button> -->
             <div class="dropdown ms-3">
               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                 <img src="@/assets/user.png" style="max-height: 30px;" alt="User" class="rounded-circle" />
@@ -42,14 +40,13 @@
       </div>
     </nav>
 
-    <!-- this splits the filter bar on the left hand side and job card to the right -->
     <div class="container-fluid">
       <div class="row">
-        <div class="filter-sidebar">
+        <!-- Only show the filter sidebar on the Find Jobs page -->
+        <div v-if="$route.path === '/find-jobs'" class="filter-sidebar">
           <div class="card filter-card mb-4">
             <div class="card-body">
               <h5 class="card-title">Filter Your Search</h5>
-              <!-- position type filters -->
               <div class="filter-group">
                 <h6>Job Type</h6>
                 <div class="filter-options">
@@ -63,7 +60,6 @@
                   </button>
                 </div>
               </div>
-              <!-- industry search -->
               <div class="filter-group mt-3">
                 <h6>Industry</h6>
                 <div class="filter-options">
@@ -77,7 +73,6 @@
                   </button>
                 </div>
               </div>
-              <!-- city/zip -->
               <div class="filter-group mt-3">
                 <h6>Location</h6>
                 <input
@@ -95,7 +90,7 @@
         </div>
 
         <!-- Main Content Area for Routed Pages -->
-        <div class="main-content">
+        <div :class="{'main-content': $route.path === '/find-jobs', 'main-content-full': $route.path !== '/find-jobs'}">
           <router-view />
         </div>
       </div>
@@ -109,14 +104,12 @@ import { ref } from 'vue';
 const jobTypeOptions = ['Full-Time', 'Part-Time', 'Internship', 'Contract', 'Freelance'];
 const industryOptions = ['Technology', 'Healthcare', 'Finance', 'Education', 'Marketing'];
 
-// reactive filter state
 const filters = ref({
   jobTypes: [],
   industries: [],
   location: '',
 });
 
-// Toggle a filter option on/off
 function toggleFilter(filterCategory, option) {
   const index = filters.value[filterCategory].indexOf(option);
   if (index === -1) {
@@ -132,7 +125,6 @@ function applyFilters() {
 </script>
 
 <style scoped>
-/* fixed bar so it stays at the top*/
 .navbar {
   position: fixed;
   top: 0;
@@ -140,13 +132,12 @@ function applyFilters() {
   z-index: 2000;
 }
 
-/* fixed search filter to stay at the left side */
 .filter-sidebar {
   position: fixed;
-  top: 70px; /* Adjust to the actual navbar height */
+  top: 70px;
   left: 0;
-  width: 250px; /* Fixed width for the sidebar */
-  height: calc(100% - 70px); /* Full height minus the navbar */
+  width: 250px;
+  height: calc(100% - 70px);
   overflow-y: auto;
   padding: 1rem;
   background-color: #f5f7fa;
@@ -154,10 +145,15 @@ function applyFilters() {
   z-index: 1000;
 }
 
-
 .main-content {
-  margin-top: 70px; /* To ensure it's below the fixed navbar */
-  margin-left: 260px; /* Sidebar width + gap */
+  margin-top: 70px;
+  margin-left: 260px;
+  padding: 2rem;
+}
+
+.main-content-full {
+  margin-top: 70px;
+  margin-left: 0;
   padding: 2rem;
 }
 
