@@ -270,3 +270,14 @@ function applyFilters() {
   }
 }
 </style>
+/* keeps the modal infront of the nav bar*/
+<style>
+.modal {
+  z-index: 2100 !important;
+}
+.modal-backdrop {
+  z-index: 2050 !important;
+}
+.modal-dialog {
+  margin-top: 80px;
+}</style>
