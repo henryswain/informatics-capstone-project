@@ -11,12 +11,18 @@ team 3 - Henry, Marcus, Tommy, Ryan, and Topher
 
 * Meeting minutes - details of meetings
 
-* Team member 1: 
+* Team member 1: Henry Swain
 o Stories completed
--
+- reworked cards to show information that users will want to see when quickly scrolling through jobs 
+(salary, location, part-time/full-time as opposed to job description, basic qual requirements, prefered skills and to apply).
+-fixed styling of learn button button
+-made learn more button open up modal with more full information about the job; content which was originally visible when scrolling
+ through the cards (job description, basic qual requirements, prefered skills, to apply), but ultimately made more sense to be visible when "learning more"
 o Progress report 
-
+- good progress was made, It's now much easier to see what jobs are available on a quick scroll, but the full information is readily available 
+with a well styled learn more button
 o Plan for next week
+-start to implement a job filtering system
 
 Team member 2: Marcus Bodnar
 o Stories completed
