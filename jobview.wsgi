@@ -53,12 +53,12 @@ def application(environ, start_response):
        output += f'<p class="card-text">Location: {row[6]}</p>\n'
     #    output += f'<button class="btn btn-primary" id="button_{row[0]}" onclick="LinkToJob({row[0]})">Learn More</button>'
        output += f"""<!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="button_{row[0]}" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="button_{row[0]}" data-bs-target="#modal_{row[0]}">
             Learn More
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="more information" aria-hidden="true">
+        <div class="modal fade" id="modal_{row[0]}" tabindex="-1" aria-labelledby="more information" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
