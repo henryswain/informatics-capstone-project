@@ -49,12 +49,13 @@ onMounted(() => {
 
 <style scoped>
 .find-jobs-page {
-  padding: 2rem;
+  padding: 0rem;
 }
 .job-card {
   border: 1px solid #ddd;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 0rem;
+  margin-bottom: 0rem;
   border-radius: 0.5rem;
 }
+
 </style>

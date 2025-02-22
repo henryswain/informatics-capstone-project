@@ -1,0 +1,52 @@
+Team weekly report
+
+* Team members and team number
+team 3 - Henry, Marcus, Tommy, Ryan, and Topher
+
+* Team progress/achieved things/accomplished tasks/stories completed
+
+* Team blockers/issues
+
+* Team tasks for next week
+
+* Meeting minutes - details of meetings
+
+* Team member 1: 
+o Stories completed
+-
+o Progress report 
+
+o Plan for next week
+
+Team member 2: Marcus Bodnar
+o Stories completed
+- Added Styling to home page
+- Made navbar compatible with different screen sizes (responsiveness)
+- Filter compatible for different screen sizes
+o Progress report 
+- Things went well and the page looks more presentable now after adding the screen size responsiveness. I did not get around to the filters working since we were worries more about the layout of the page rather than overall functionality yet.
+- See if I can get the filtering next week instead.
+o Plan for next week
+Work on login/signup pages
+Team member 3: 
+o Stories completed
+-
+o Progress report 
+
+o Plan for next week
+
+Team member 4: 
+o Stories completed
+-
+o Progress report 
+
+o Plan for next week
+
+Team member 5: 
+o Stories completed
+-
+o Progress report 
+
+o Plan for next week
+
+

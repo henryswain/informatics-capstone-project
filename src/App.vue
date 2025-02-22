@@ -1,49 +1,121 @@
 <template>
   <div id="app">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top">
+    <!--Desktop navbar-->
+    <nav class="navbar navbar-expand bg-primary navbar-dark fixed-top d-none d-lg-flex">
       <div class="container-fluid">
+        <!-- Brand on the far left -->
         <router-link class="navbar-brand fw-bold" to="/">CareerQuest</router-link>
+
+        <!-- nav links -->
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/find-jobs">Find Jobs</router-link>
+          </li>
+        </ul>
+
+        <!-- search -->
+        <form class="d-flex me-3">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search jobs..."
+          />
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+
+        <!-- profile/saved jobs dropdown -->
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+          >
+            <img
+              src="@/assets/user.png"
+              style="max-height: 30px;"
+              alt="User"
+              class="rounded-circle"
+            />
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
+            <li><router-link class="dropdown-item" to="/saved-jobs">Saved Jobs</router-link></li>
+            <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--smaller screen/mobile navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top d-lg-none">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <router-link class="navbar-brand fw-bold" to="/">CareerQuest</router-link>
+
+        <!-- mobile menu toggle -->
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          data-bs-target="#navbarNavMobile"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
+
+        <div
+          class="collapse navbar-collapse flex-column align-items-center"
+          id="navbarNavMobile"
+        >
+          <!-- centering mobile nav view -->
+          <ul class="navbar-nav mb-2 w-100 d-flex justify-content-center">
             <li class="nav-item">
               <router-link class="nav-link" to="/find-jobs">Find Jobs</router-link>
             </li>
           </ul>
-          <form class="d-flex me-3">
-            <input class="form-control me-2" type="search" placeholder="Search jobs, companies..." />
+
+          <!-- centers search bar -->
+          <form class="d-flex mb-2 w-100 justify-content-center">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search jobs..."
+            />
             <button class="btn btn-outline-light" type="submit">Search</button>
           </form>
-          <div class="d-flex align-items-center">
-            <div class="dropdown ms-3">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                <img src="@/assets/user.png" style="max-height: 30px;" alt="User" class="rounded-circle" />
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
-                <li><router-link class="dropdown-item" to="/saved-jobs">Saved Jobs</router-link></li>
-                <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li>
-              </ul>
-            </div>
+
+          <!-- centers profile dropdown. can change this later for better hci principles -->
+          <div class="dropdown w-100 d-flex justify-content-center">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              <img
+                src="@/assets/user.png"
+                style="max-height: 30px;"
+                alt="User"
+                class="rounded-circle"
+              />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
+              <li><router-link class="dropdown-item" to="/saved-jobs">Saved Jobs</router-link></li>
+              <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li>
+            </ul>
           </div>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Only show the filter sidebar on the Find Jobs page -->
-        <div v-if="$route.path === '/find-jobs'" class="filter-sidebar">
+    <!-- main content  -->
+    <div style="margin-top: 70px;">
+      <!-- Only use grid layout on the Find Jobs page -->
+      <div v-if="$route.path === '/find-jobs'" class="grid-container">
+        <!-- Filter Section -->
+        <div class="filter-section">
           <div class="card filter-card mb-4">
             <div class="card-body">
               <h5 class="card-title">Filter Your Search</h5>
@@ -88,11 +160,14 @@
             </div>
           </div>
         </div>
-
-        <!-- Main Content Area for Routed Pages -->
-        <div :class="{'main-content': $route.path === '/find-jobs', 'main-content-full': $route.path !== '/find-jobs'}">
+        <!-- Jobs Section -->
+        <div class="jobs-section">
           <router-view />
         </div>
+      </div>
+      <!-- full width for other content other than find-jobs -->
+      <div v-else class="main-content-full">
+        <router-view />
       </div>
     </div>
   </div>
@@ -126,35 +201,30 @@ function applyFilters() {
 
 <style scoped>
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
   z-index: 2000;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  padding: 1rem;
+}
 
-.filter-sidebar {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 250px;
-  height: calc(100% - 70px);
-  overflow-y: auto;
+/* left hand filter section */
+.filter-section {
   padding: 1rem;
   background-color: #f5f7fa;
   border-right: 1px solid #ddd;
-  z-index: 1000;
 }
 
-.main-content {
-  margin-top: 70px;
-  margin-left: 260px;
-  padding: 2rem;
+/* right hand jobs section */
+.jobs-section {
+  padding: 1rem;
 }
+
 
 .main-content-full {
-  margin-top: 70px;
-  margin-left: 0;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .filter-card {
@@ -191,5 +261,12 @@ function applyFilters() {
   background-color: #007bff;
   color: #fff;
   border-color: #007bff;
+}
+
+/*responsiveness stacking grid columns */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
