@@ -47,12 +47,13 @@ o Progress report
 o Plan for next week
 - Style profile page and make it more compatible with website, allowing for better user engagement.
 
-Team member 4: 
+Team member 4: Ryan
 o Stories completed
--
+- Experiemented with AWS services
 o Progress report 
-
+- Found some success with integrating AWS into vue
 o Plan for next week
+- Work to implement AWS functionality into our project where neccessary
 
 Team member 5: Magnolia (Topher)
 o Stories completed
@@ -61,4 +62,5 @@ o Progress report
 - Still not working entirely but have a better lead thanks to urllib added by Henry
 o Plan for next week
 - Try to really flesh out querying the database
+- Probably make some presentation materials for our first sprint presentation
 
