@@ -1,7 +1,7 @@
 Team weekly report
 
 * Team members and team number
-team 3 - Henry, Marcus, Tommy, Ryan, and Topher
+team 3 - Henry, Marcus, Tommy, Ryan, and Magnolia (Topher)
 
 * Team progress/achieved things/accomplished tasks/stories completed
 
@@ -34,6 +34,7 @@ o Progress report
 - See if I can get the filtering next week instead.
 o Plan for next week
 Work on login/signup pages
+
 Team member 3: Tommy Le
 o Stories completed
 - Created profile page
@@ -53,11 +54,11 @@ o Progress report
 
 o Plan for next week
 
-Team member 5: 
+Team member 5: Magnolia (Topher)
 o Stories completed
--
+- Worked on getting query strings to work but was busy with other stuff so didn't get much of a chance to really dig into it
 o Progress report 
-
+- Still not working entirely but have a better lead thanks to urllib added by Henry
 o Plan for next week
-
+- Try to really flesh out querying the database
 
