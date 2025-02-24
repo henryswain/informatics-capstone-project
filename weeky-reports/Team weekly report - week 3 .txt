@@ -34,12 +34,17 @@ o Progress report
 - See if I can get the filtering next week instead.
 o Plan for next week
 Work on login/signup pages
-Team member 3: 
+Team member 3: Tommy Le
 o Stories completed
--
+- Created profile page
+- Added ability to modify profile picture on profile page
+- Added ability to add qualifications through text and inserted in
+- Added ability to add skills through a textbox and inserted in
+- Added ability to add educuation and work experience
 o Progress report 
-
+- Super positive this week, prepared for presentation on Wednesday, only thing needed is to modify the styling of profile page
 o Plan for next week
+- Style profile page and make it more compatible with website, allowing for better user engagement.
 
 Team member 4: 
 o Stories completed
