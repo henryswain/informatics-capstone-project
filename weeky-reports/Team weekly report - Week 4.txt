@@ -13,7 +13,9 @@ Team 3: Henry, Marcus, Tommy, Ryan, and Magnolia
 
 * Team member 1: Henry Swain
 o Stories completed
-
+- updated powerpoint with sprint goal, each team members completed stories, and how users stories contributed to sprint goal
+- presented those slides on Wednesday
+- looked into groups in AWS and began setting it up to prepare for switching to AWS.
 o Progress report 
 
 o Plan for next week
