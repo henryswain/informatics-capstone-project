@@ -17,9 +17,9 @@ o Stories completed
 - presented those slides on Wednesday
 - looked into groups in AWS and began setting it up to prepare for switching to AWS.
 o Progress report 
-
+- most just worked on presentations, but I begain research into aws migration
 o Plan for next week
-
+- migrate to aws
 
 Team member 2: Marcus Bodnar
 o Stories completed
