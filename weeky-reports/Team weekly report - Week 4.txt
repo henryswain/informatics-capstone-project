@@ -1,0 +1,52 @@
+Team weekly report
+
+* Team members and team number
+Team 3: Henry, Marcus, Tommy, Ryan, and Magnolia
+
+* Team progress/achieved things/accomplished tasks/stories completed
+
+* Team blockers/issues
+
+* Team tasks for next week
+
+* Meeting minutes - details of meetings
+
+* Team member 1: Henry Swain
+o Stories completed
+
+o Progress report 
+
+o Plan for next week
+
+
+Team member 2: Marcus Bodnar
+o Stories completed
+
+o Progress report 
+
+o Plan for next week
+
+
+Team member 3: Tommy Le
+o Stories completed
+
+o Progress report 
+
+o Plan for next week
+
+
+Team member 4: Ryan Witcraft
+o Stories completed
+
+o Progress report 
+
+o Plan for next week
+
+
+Team member 5: Magnolia Wallerich
+o Stories completed
+- Added my bits to the presentation and made all the slides look presentable as well as doing some general spell checking and tidying up.
+o Progress report 
+- Completed all of the aforementioned and we presented our sprint on Wednesday which I believe went well.
+o Plan for next week
+- Would like to begin working on migrating our database to AWS DynamoDB and implementing associated functionality.
