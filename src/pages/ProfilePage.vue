@@ -1,24 +1,32 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
-const user = ref({
-  name: "Your Name",
-  headline: "Your Professional Headline",
-  email: "youremail@example.com",
-  location: "Your Location",
-  profilePicture: "", 
-  about: "A short summary about your professional background.",
-  experience: [],
-  education: [],
-  skills: [],
-  qualifications: []
-});
+const loadProfile = () => {
+  const savedProfile = localStorage.getItem('userProfile');
+  return savedProfile ? JSON.parse(savedProfile) : {
+    name: "Your Name",
+    headline: "Your Professional Headline",
+    email: "youremail@example.com",
+    location: "Your Location",
+    profilePicture: "", 
+    about: "A short summary about your professional background.",
+    experience: [],
+    education: [],
+    skills: [],
+    qualifications: []
+  };
+};
 
+const user = ref(loadProfile());
 const isEditing = ref(false);
 const newSkill = ref("");
 const newQualification = ref("");
 const newExperience = ref({ position: "", company: "", duration: "" });
 const newEducation = ref({ degree: "", institution: "", year: "" });
+
+watch(user, (newVal) => {
+  localStorage.setItem('userProfile', JSON.stringify(newVal));
+}, { deep: true });
 
 const saveProfile = () => {
   isEditing.value = false;
