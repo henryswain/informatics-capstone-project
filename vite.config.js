@@ -6,7 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/informatics-capstone-project/",
+  // base: "/informatics-capstone-project/",
+  base: "/",
   plugins: [
     vue(),
     vueDevTools(),
