@@ -8,8 +8,9 @@ Team 3: Henry, Marcus, Tommy, Ryan, and Magnolia
 * Team blockers/issues
 
 * Team tasks for next week
+Work on the login/signup pages
 
-* Meeting minutes - details of meetings
+* Meeting minutes - details of meetings 
 
 * Team member 1: Henry Swain
 o Stories completed
@@ -23,18 +24,21 @@ o Plan for next week
 
 Team member 2: Marcus Bodnar
 o Stories completed
-
+- Created the slides for the sprint retrospective. 
+-Presented Wednesday
 o Progress report 
-
+Mainly just worked on the presentation this week and team evals.
 o Plan for next week
-
+Work on the functionality on the buttons. Add an apply feature
 
 Team member 3: Tommy Le
 o Stories completed
-
+- Worked on the intro and conclusion slides
 o Progress report 
-
+- Presented and started working on the login/sign up pages a bit
 o Plan for next week
+Work on development of the sign in/log in page and see how we are going to 
+store user data 
 
 
 Team member 4: Ryan Witcraft
