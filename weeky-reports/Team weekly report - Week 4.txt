@@ -41,12 +41,15 @@ Work on development of the sign in/log in page and see how we are going to
 store user data 
 
 
-Team member 4: Ryan Witcraft
-o Stories completed
-
-o Progress report 
-
-o Plan for next week
+Team member 4: Ryan Witcraft 
+o Stories completed 
+- Base settings and saved job pages 
+- Updated profile page to save to local drive as a temporary solution until AWS integration 
+- AWS troubleshooting 
+o Progress report  
+- More functionality for profile page and can apply to saved jobs/settings if user is not signed in. 
+o Plan for next week 
+- AWS integration and added functionality for settings/saved job pages 
 
 
 Team member 5: Magnolia Wallerich
