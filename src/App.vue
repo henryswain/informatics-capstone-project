@@ -23,6 +23,7 @@
           <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
 
+
         <!-- profile/saved jobs dropdown -->
         <div class="dropdown">
           <button
@@ -42,11 +43,15 @@
             <li><router-link class="dropdown-item" to="/savedJobs">Saved Jobs</router-link></li>
             <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
             <li><hr class="dropdown-divider" /></li>
+            <li><router-link class="dropdown-item" to="/login">Login</router-link></li>
+            <li><router-link class="dropdown-item" to="/register">Register</router-link></li>
             <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li>
           </ul>
         </div>
       </div>
     </nav>
+
+
     <!--smaller screen/mobile navbar -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top d-lg-none">
       <div class="container-fluid">

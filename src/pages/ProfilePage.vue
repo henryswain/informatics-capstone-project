@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue';
 
+// Load profile data from localStorage
 const loadProfile = () => {
   const savedProfile = localStorage.getItem('userProfile');
   return savedProfile ? JSON.parse(savedProfile) : {
@@ -24,15 +25,18 @@ const newQualification = ref("");
 const newExperience = ref({ position: "", company: "", duration: "" });
 const newEducation = ref({ degree: "", institution: "", year: "" });
 
+// Watch and save changes to localStorage
 watch(user, (newVal) => {
   localStorage.setItem('userProfile', JSON.stringify(newVal));
 }, { deep: true });
 
+// Save the profile and stop editing
 const saveProfile = () => {
   isEditing.value = false;
   console.log("Profile updated:", user.value);
 };
 
+// Add skill, qualification, experience, and education
 const addSkill = () => {
   if (newSkill.value.trim()) {
     user.value.skills.push(newSkill.value.trim());
@@ -61,6 +65,7 @@ const addEducation = () => {
   }
 };
 
+// Handle profile picture upload
 const handleFileUpload = (event) => {
   const file = event.target.files[0];
   if (file) {
@@ -71,15 +76,24 @@ const handleFileUpload = (event) => {
     reader.readAsDataURL(file);
   }
 };
+
+// Delete experience, education, or qualification
+const deleteItem = (array, index) => {
+  array.splice(index, 1);
+};
 </script>
 
 <template>
   <div class="profile-container">
+    <!-- Profile Header -->
     <div class="profile-header">
-      <label class="profile-upload">
-        <input type="file" @change="handleFileUpload" hidden />
-        <img :src="user.profilePicture || '/user.png'" alt="Profile Picture" class="profile-picture" />
-      </label>
+      <div class="profile-picture-container">
+        <label class="profile-upload">
+          <input type="file" @change="handleFileUpload" hidden />
+          <img :src="user.profilePicture || '/user.png'" alt="Profile Picture" class="profile-picture" />
+        </label>
+        <button @click="handleFileUpload" class="btn btn-upload">Change Profile Picture</button>
+      </div>
       <template v-if="isEditing">
         <input v-model="user.name" class="input-field" placeholder="Enter Name" />
         <input v-model="user.headline" class="input-field" placeholder="Enter Headline" />
@@ -90,6 +104,7 @@ const handleFileUpload = (event) => {
       </template>
     </div>
 
+    <!-- Profile Details Section -->
     <div class="profile-details">
       <h3>About</h3>
       <template v-if="isEditing">
@@ -103,6 +118,7 @@ const handleFileUpload = (event) => {
       <ul>
         <li v-for="(job, index) in user.experience" :key="index">
           <strong>{{ job.position }}</strong> at {{ job.company }} ({{ job.duration }})
+          <button v-if="isEditing" @click="deleteItem(user.experience, index)" class="btn btn-delete">Delete</button>
         </li>
       </ul>
       <template v-if="isEditing">
@@ -116,6 +132,7 @@ const handleFileUpload = (event) => {
       <ul>
         <li v-for="(edu, index) in user.education" :key="index">
           <strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.year }})
+          <button v-if="isEditing" @click="deleteItem(user.education, index)" class="btn btn-delete">Delete</button>
         </li>
       </ul>
       <template v-if="isEditing">
@@ -140,6 +157,7 @@ const handleFileUpload = (event) => {
       <ul>
         <li v-for="(qualification, index) in user.qualifications" :key="index">
           <input type="checkbox" :checked="true" /> {{ qualification }}
+          <button v-if="isEditing" @click="deleteItem(user.qualifications, index)" class="btn btn-delete">Delete</button>
         </li>
       </ul>
       <template v-if="isEditing">
@@ -148,6 +166,7 @@ const handleFileUpload = (event) => {
       </template>
     </div>
 
+    <!-- Action Buttons -->
     <div class="profile-actions">
       <button v-if="!isEditing" class="btn btn-primary" @click="isEditing = true">Edit Profile</button>
       <button v-else class="btn btn-success" @click="saveProfile">Save</button>
@@ -169,6 +188,13 @@ const handleFileUpload = (event) => {
   text-align: center;
 }
 
+.profile-picture-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .profile-upload {
   display: inline-block;
   cursor: pointer;
@@ -181,6 +207,15 @@ const handleFileUpload = (event) => {
   border: 2px solid #ddd;
 }
 
+.btn-upload {
+  background-color: #0073b1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
 .input-field {
   width: 100%;
   padding: 8px;
@@ -189,7 +224,39 @@ const handleFileUpload = (event) => {
   border-radius: 5px;
 }
 
-.btn-primary { background-color: #0073b1; color: white; }
-.btn-success { background-color: #28a745; color: white; }
-.btn-secondary { background-color: #6c757d; color: white; }
+.btn-primary {
+  background-color: #0073b1;
+  color: white;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.profile-details h3 {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
 </style>
