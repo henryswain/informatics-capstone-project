@@ -3,6 +3,8 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 import FindJobs from './pages/FindJobs.vue'; 
 import ProfilePage from './pages/ProfilePage.vue';
 import SavedJobs from './pages/SavedJobs.vue';
+import LoginPage from './pages/Login.vue';
+import RegisterPage from './pages/Register.vue';
 
 // eventually will add imports like a PostJob that link to './pages.Postjob.vue'
 // Will also add one for companies and career advice. But we will talk more about that 
@@ -26,6 +28,16 @@ const routes = [
     path: '/SavedJobs',
     name: 'SavedJobs',
     component: SavedJobs,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterPage,
   }
   // we can add our future routes here for the post job and comapnies
 ];
