@@ -1,12 +1,13 @@
 <template>
   <div class="find-jobs-page">
     <div v-html="html"></div>
-    <!-- <div class="jobs-list">
-      <div v-for="job in jobs" :key="job.id" class="job-card">
+    <!--<div class="jobs-list">
+      <div v-for="job in JobsJSON['items']" :key="'Job ID'" class="job-card">
         <h2>{{ job.title }}</h2>
         <p>{{ job.description }}</p>
       </div>
-    </div> -->
+    </div>
+    -->
   </div>
 </template>
 
@@ -15,24 +16,15 @@ import { ref, onMounted } from 'vue';
 
 const jobs = ref([]);
 
-// onMounted(() => {
-//   this is just for show. we will replace it with the API call later
-//   jobs.value = [
-//     { id: 1, title: 'Software Engineer', description: 'Be an engineer of the software.' },
-//     { id: 2, title: 'Product Manager', description: 'Be a manager of thee ole product.' },
-//     { id: 3, title: 'UX Designer', description: 'Be a designer of thee ole Ux.' },
-//   ];
-// })
-
   // CLIENT SIDE
 const html = ref(null)
 
 async function fetchOwnContent() {
+  const url = 'https://npvdpxycgi.execute-api.us-east-2.amazonaws.com/dev/reading'
   try {
-    const response = await fetch('https://webdev.divms.uiowa.edu/webdev/cs3910/henryswain/informatics-capstone-project/jobview.wsgi')
-    const text = await response.text()  // Use .text() instead of .html
-    html.value = text
-    
+    const response = await fetch(url)
+    const jsonResponse = await response.json()
+    return jsonResponse
     // In Vue, you should avoid directly manipulating DOM with innerHTML
     // Instead, use v-html directive in your template
   } catch (error) {
@@ -40,12 +32,20 @@ async function fetchOwnContent() {
   }
 }
 
-
 onMounted(() => {
-  fetchOwnContent()
+  fetchOwnContent().then(result => {
+    console.log(result)
+    const JobsJSON = JSON.parse(JSON.stringify(result))
+    for (let i = 0; i < JobsJSON.items.length; i++) {
+      //console.log(i);
+      console.log(JobsJSON["items"][i]);
+      }
+    return JobsJSON
+  })
 })
 
 </script>
+
 
 <style scoped>
 .find-jobs-page {
