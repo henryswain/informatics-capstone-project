@@ -1,0 +1,46 @@
+Team weekly report
+
+* Team members and team number
+    Team 3: Henry, Marcus, Ryan, Tommy, and Magnolia
+
+* Team progress/achieved things/accomplished tasks/stories completed
+
+* Team blockers/issues
+
+* Team tasks for next week
+
+* Meeting minutes - details of meetings
+
+* Team member 1: Henry Swain
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 2: Marcus Bodnar
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 3: Tommy Le 
+o Stories completed
+o Progress report
+o Plan for next week
+
+* Team member 4: Ryan Witcraft
+o Stories completed
+- Implemented settings and saved jobs page
+- Functionality for settings implemented for FindJobs page
+- Dark mode, pagination, and clear local cache
+o Progress report
+- Implementation through local storage
+- Improvement to styling from dark mode and user interface through pagination
+- Saved jobs list still does not show description yet
+o Plan for next week
+- Fully integrate systems that are saved locally to AWS through API/Lambda/DynamoDB
+- Implement more settings and make them work on all pages
+- Improve darkmode styling
+
+* Team member 5: Magnolia
+o Stories completed
+o Progress report
+o Plan for next week

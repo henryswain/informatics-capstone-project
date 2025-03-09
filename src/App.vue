@@ -42,7 +42,7 @@
           <ul class="dropdown-menu dropdown-menu-end">
             <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
             <li><router-link class="dropdown-item" to="/savedJobs">Saved Jobs</router-link></li>
-            <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
+            <li><router-link class="dropdown-item" to="/Settings">Settings</router-link></li>
             <li><hr class="dropdown-divider" /></li>
             <li><router-link class="dropdown-item" to="/login">Login</router-link></li>
             <li><router-link class="dropdown-item" to="/register">Register</router-link></li>
