@@ -100,5 +100,8 @@ o Plan for next week
 
 * Team member 5: Magnolia
 o Stories completed
+- Changed the FindJobs page to fetch from the new read API and made it able to parse the JSON instead of HTML as that was what it was receiving previously
 o Progress report
+- The fetching on I implemented for FindJobs works well, though, as I have never used Vue before beyond that I didn't know how to do anything so I left that to Henry
 o Plan for next week
+- Not entirely certain but I would like to find some larger aspect to work on over spring break
