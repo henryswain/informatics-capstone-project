@@ -14,13 +14,14 @@
         </ul>
 
         <!-- search -->
-        <form class="d-flex me-3">
+        <form class="d-flex me-3" @submit.prevent="handleSubmit">
           <input
             class="form-control me-2"
-            type="search"
+            type="text"
+            v-model="searchText"
             placeholder="Search jobs..."
           />
-          <button class="btn btn-outline-light" type="submit">Search</button>
+          <button class="btn btn-outline-light" type="text">Search</button>
         </form>
 
 
@@ -75,18 +76,19 @@
           <!-- centering mobile nav view -->
           <ul class="navbar-nav mb-2 w-100 d-flex justify-content-center">
             <li class="nav-item">
-              <router-link class="nav-link" to="/find-jobs">Find Jobs</router-link>
+              <router-link class="nav-link" :to="`/find-jobs?q=${searchText}`">Find Jobs</router-link>
             </li>
           </ul>
 
           <!-- centers search bar -->
-          <form class="d-flex mb-2 w-100 justify-content-center">
+          <form class="d-flex me-3" @submit.prevent="handleSubmit">
             <input
               class="form-control me-2"
-              type="search"
+              type="text"
+              v-model="searchText"
               placeholder="Search jobs..."
             />
-            <button class="btn btn-outline-light" type="submit">Search</button>
+            <button class="btn btn-outline-light" type="textt">Search</button>
           </form>
 
           <!-- centers profile dropdown. can change this later for better hci principles -->
@@ -118,7 +120,7 @@
     <!-- main content  -->
     <div style="margin-top: 70px;">
       <!-- Only use grid layout on the Find Jobs page -->
-      <div v-if="$route.path === '/find-jobs'" class="grid-container">
+      <div v-if='$route.path === "/find-jobs"' class="grid-container">
         <!-- Filter Section -->
         <div class="filter-section">
           <div class="card filter-card mb-4">
@@ -179,7 +181,19 @@
 </template>
 
 <script setup>
+import { nextTick } from 'vue';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+const searchText = ref("")
+
+const handleSubmit= async () => {
+  router.replace({ path: '/find-jobs', query: { q: searchText.value } });
+  console.log("handleInputChange called")
+  console.log("searchText: ", searchText.value)
+  await nextTick()
+}
 
 const jobTypeOptions = ['Full-Time', 'Part-Time', 'Internship', 'Contract', 'Freelance'];
 const industryOptions = ['Technology', 'Healthcare', 'Finance', 'Education', 'Marketing'];
