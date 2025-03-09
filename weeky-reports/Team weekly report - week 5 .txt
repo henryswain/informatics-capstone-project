@@ -50,8 +50,14 @@ o Plan for next week
 
 * Team member 2: Marcus Bodnar
 o Stories completed
+- Created and implemented login and sign up page
+- Fixed functionality for Profile page (allow for people to delete experiences and skills)
 o Progress report
+- Transition more towards back end development after this split
+- Focus on implementing functionality towards everything
 o Plan for next week
+- Continue login and sign up page design and create a more optimal sign-up/login
+- Improvement of styling for all pages throughout
 
 * Team member 3: Tommy Le 
 o Stories completed
