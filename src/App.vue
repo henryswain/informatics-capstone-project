@@ -24,7 +24,6 @@
           <button class="btn btn-outline-light" type="text">Search</button>
         </form>
 
-
         <!-- profile/saved jobs dropdown -->
         <div class="dropdown">
           <button
@@ -51,7 +50,6 @@
         </div>
       </div>
     </nav>
-
 
     <!--smaller screen/mobile navbar -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top d-lg-none">
@@ -91,7 +89,7 @@
             <button class="btn btn-outline-light" type="textt">Search</button>
           </form>
 
-          <!-- centers profile dropdown. can change this later for better hci principles -->
+          <!-- centers profile dropdown -->
           <div class="dropdown w-100 d-flex justify-content-center">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -184,16 +182,16 @@
 import { nextTick } from 'vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-const router = useRouter()
+const router = useRouter();
 
-const searchText = ref("")
+const searchText = ref("");
 
-const handleSubmit= async () => {
+const handleSubmit = async () => {
   router.replace({ path: '/find-jobs', query: { q: searchText.value } });
-  console.log("handleInputChange called")
-  console.log("searchText: ", searchText.value)
-  await nextTick()
-}
+  console.log("handleInputChange called");
+  console.log("searchText: ", searchText.value);
+  await nextTick();
+};
 
 const jobTypeOptions = ['Full-Time', 'Part-Time', 'Internship', 'Contract', 'Freelance'];
 const industryOptions = ['Technology', 'Healthcare', 'Finance', 'Education', 'Marketing'];
@@ -241,7 +239,6 @@ function applyFilters() {
   padding: 1rem;
 }
 
-
 .main-content-full {
   padding: 1rem;
 }
@@ -282,14 +279,15 @@ function applyFilters() {
   border-color: #007bff;
 }
 
-/*responsiveness stacking grid columns */
+/* responsiveness stacking grid columns */
 @media (max-width: 768px) {
   .grid-container {
     grid-template-columns: 1fr;
   }
 }
 </style>
-/* keeps the modal infront of the nav bar*/
+
+<!-- Modal styles -->
 <style>
 .modal {
   z-index: 2100 !important;
@@ -299,4 +297,124 @@ function applyFilters() {
 }
 .modal-dialog {
   margin-top: 80px;
-}</style>
+}
+</style>
+
+<!-- Global Dark Mode Overrides -->
+<style>
+
+/* 1. Inputs, including password fields, in dark mode */
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="search"],
+.dark-mode input[type="password"],
+.dark-mode select,
+.dark-mode textarea,
+.dark-mode .form-control {
+  background-color: #444444 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+/* Placeholder text */
+.dark-mode input[type="text"]::placeholder,
+.dark-mode input[type="email"]::placeholder,
+.dark-mode input[type="search"]::placeholder,
+.dark-mode input[type="password"]::placeholder,
+.dark-mode select::placeholder,
+.dark-mode textarea::placeholder,
+.dark-mode .form-control::placeholder {
+  color: #cccccc !important;
+}
+
+/* 2. Profile Page */
+.dark-mode .profile-container,
+.dark-mode .profile-header,
+.dark-mode .profile-details,
+.dark-mode .profile-picture-container,
+.dark-mode .profile-actions {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+/* Force all children to inherit dark mode colors */
+.dark-mode .profile-container *,
+.dark-mode .profile-header *,
+.dark-mode .profile-details *,
+.dark-mode .profile-picture-container *,
+.dark-mode .profile-actions * {
+  color: #ffffff !important;
+}
+
+
+.dark-mode .profile-picture {
+  background-color: #444444 !important;
+  border-color: #555555 !important;
+}
+
+.dark-mode .btn-upload,
+.dark-mode .btn-success,
+.dark-mode .btn-primary,
+.dark-mode .btn-secondary {
+  background-color: #444444 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+
+.dark-mode .signup-container,
+.dark-mode .signup-container * {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+/* 4. Saved Jobs Page */
+.dark-mode .saved-jobs-container,
+.dark-mode .saved-jobs-container * {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+
+.dark-mode .saved-jobs-container .job-item {
+  background-color: #444444 !important;
+  border-color: #555555 !important;
+}
+
+/* Buttons on Saved Jobs page */
+.dark-mode .saved-jobs-container .btn.btn-primary {
+  background-color: #007bff !important;
+  color: #ffffff !important;
+  border-color: #007bff !important;
+}
+.dark-mode .saved-jobs-container .btn.btn-danger {
+  background-color: #b02a37 !important;
+  color: #ffffff !important;
+  border-color: #b02a37 !important;
+}
+
+/* 5. Modal Content (e.g., job descriptions, profile modals, etc.) */
+.dark-mode .modal-content,
+.dark-mode .modal-header,
+.dark-mode .modal-body,
+.dark-mode .modal-footer {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+.dark-mode .filter-section,
+.dark-mode .filter-section * {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+.dark-mode .btn-close {
+  filter: invert(1);
+}
+
+</style>
+
