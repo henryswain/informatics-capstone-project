@@ -36,8 +36,17 @@ Team weekly report
 
 * Team member 1: Henry Swain
 o Stories completed
+- created lambda function to read data from CSV file from S3 bucket into table in DynamoDB
+- Create lambda function to read/filter job data from dynamo DB table Based on optional event parameters, including search For filtering jobs based on keyword,
+ And pageToken To ensure that the remaining data Is queried On subsequent calls (not the full data set)..
+- Set up an API endpoint on API Gateway that accepts query string parameters (search and pageToken) To call the lambda Function
+- Reworked frontend to call the API and read data from object returned Instead of using a WSGI file.
 o Progress report
+- Overall successful, But I ran into some roadblocks with lambda's limitations. Apparently, PartIQL (AWS's sql compatable query language) has a maximum Return size of 1MB
+And lambda itself has a maximum return size of 6 MB, Which meant that it was impossible To return all the results in one API call, So I had to figure out a way to
+Call the API multiple times until there were no more results.
 o Plan for next week
+-Will be determined on Monday
 
 * Team member 2: Marcus Bodnar
 o Stories completed
