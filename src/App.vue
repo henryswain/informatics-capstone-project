@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand bg-primary navbar-dark fixed-top d-none d-lg-flex">
       <div class="container-fluid">
         <!-- Brand on the far left -->
-        <router-link class="navbar-brand fw-bold" to="/">CareerQuest</router-link>
+        <router-link class="navbar-brand fw-bold" to="/home-page">CareerQuest</router-link>
 
         <!-- nav links -->
         <ul class="navbar-nav me-auto">

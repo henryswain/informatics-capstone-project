@@ -13,8 +13,13 @@ import Settings from './pages/Settings.vue';
 
 const routes = [
   {
+    path: '/',
+    redirect: './home-page'
+  },
+  {
     path: '/home-page',
-    redirect: '/find-jobs' 
+    name: 'HomePage',
+    component: HomePage
   },
   {
     path: '/find-jobs',
