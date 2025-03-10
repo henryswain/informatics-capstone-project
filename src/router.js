@@ -1,5 +1,6 @@
 
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
+import HomePage from './pages/HomePage.vue';
 import FindJobs from './pages/FindJobs.vue'; 
 import ProfilePage from './pages/ProfilePage.vue';
 import SavedJobs from './pages/SavedJobs.vue';
@@ -12,7 +13,7 @@ import Settings from './pages/Settings.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/home-page',
     redirect: '/find-jobs' 
   },
   {
@@ -27,7 +28,7 @@ const routes = [
     component: ProfilePage,
   },
   {
-    path: '/SavedJobs',
+    path: '/saved-jobs',
     name: 'SavedJobs',
     component: SavedJobs,
   },
@@ -42,7 +43,7 @@ const routes = [
     component: RegisterPage,
   },
   {
-    path: '/Settings',
+    path: '/settings',
     name: 'Settings',
     component: Settings,
   }
