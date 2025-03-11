@@ -1,0 +1,54 @@
+Team weekly report
+
+* Team members and team number
+    Team 3: Henry, Marcus, Ryan, Tommy, and Topher
+
+* Team progress/achieved things/accomplished tasks/stories completed
+    Created our repository and established how we want to communicate for this project
+
+* Team blockers/issues
+
+* Team tasks for next week
+
+* Meeting minutes - details of meetings
+
+* Team member 1: Henry Swain
+o Stories completed
+    - created repository
+    - edited doc
+o Progress report
+    - success
+o Plan for next week
+    - start with bulk of project
+
+* Team member 2: Marcus Bodnar
+o Stories completed
+    Edited doc 
+o Progress report
+    Fingers crossed
+o Plan for next week
+    Go to class and figure it out
+
+* Team member 3: Tommy Le (Edited)
+o Stories completed
+    Edited Doc
+o Progress report
+    Done
+o Plan for next week
+    More HW/Group Project Work
+
+* Team member 4: Ryan Witcraft
+o Stories completed
+    Edited Doc
+o Progress report
+    Done
+o Plan for next week
+    More HW/Group project work
+
+* Team member 5: Topher
+o Stories completed
+    Edited this document in our repository
+o Progress report
+    Hopefully it works
+o Plan for next week
+    Probably edit some more documents
