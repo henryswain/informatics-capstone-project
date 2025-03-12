@@ -12,6 +12,8 @@
       <br>
       <h4>Taking your job search to new heights</h4>
       <br>
+      <!--
+      in case we don't want the search stuff
       <div class="search-area">
         <form class="d-flex me-3" @submit.prevent="handleSubmit">
           <input
@@ -22,7 +24,8 @@
             />
           <button class="btn search-button" type="text">Search</button>
         </form>
-    </div>
+      </div>
+      -->
     </div>
   </div>
 </template>
@@ -61,6 +64,14 @@ onMounted(() => {
 
 <!-- Scoped style for homepage -->
 <style scoped>
+:global(body) {
+  background-image: url("src/assets/home-page-bg-TEMP.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: auto;
+  height: auto;
+}
+
 .center-logo-area {
   
   margin-left: auto;
