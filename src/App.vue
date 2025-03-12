@@ -78,6 +78,9 @@
             <li class="nav-item">
               <router-link class="nav-link" :to="`/find-jobs?q=${searchText}`">Find Jobs</router-link>
             </li>
+             <li class="nav-item">
+            <router-link class="nav-link" to="/saved-jobs">Saved Jobs</router-link>
+          </li>
           </ul>
 
           <!-- centers search bar -->
