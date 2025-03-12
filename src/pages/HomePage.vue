@@ -9,16 +9,20 @@
         class = "home-page-logo"
         src="@/assets/CQ_logo.svg"
       />
-      <h1>Yada yada tagline here</h1>
-      <form class="d-flex me-3" @submit.prevent="handleSubmit">
-        <input
-          class="form-control me-2"
-          type="text"
-          v-model="searchText"
-          placeholder="Search jobs..."
-          />
-        <button class="btn btn-outline-light" type="text">Search</button>
-      </form>
+      <br>
+      <h4>Taking your job search to new heights</h4>
+      <br>
+      <div class="search-area">
+        <form class="d-flex me-3" @submit.prevent="handleSubmit">
+          <input
+            class="form-control me-2"
+            type="text"
+            v-model="searchText"
+            placeholder="Search jobs..."
+            />
+          <button class="btn search-button" type="text">Search</button>
+        </form>
+    </div>
     </div>
   </div>
 </template>
@@ -57,10 +61,31 @@ onMounted(() => {
 
 <!-- Scoped style for homepage -->
 <style scoped>
+.center-logo-area {
+  
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  bottom: 50%;
+  text-align: center;
+}
+
 .home-page-logo {
-  max-width: 100;
+  max-width: 1000px;
+  vertical-align: middle;
   margin: auto;
+  padding: 50px;
   fill: rgb(0, 0, 0);
+}
+
+.search-box {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-button {
+  fill :rgb(61, 67, 151);
 }
 </style>
 
