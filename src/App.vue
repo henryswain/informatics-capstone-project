@@ -45,9 +45,19 @@
             <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
             <li><router-link class="dropdown-item" to="/Settings">Settings</router-link></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><router-link class="dropdown-item" to="/login">Login</router-link></li>
+            <!-- <li><router-link class="dropdown-item" to="/login">Login</router-link></li>
             <li><router-link class="dropdown-item" to="/register">Register</router-link></li>
-            <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li>
+            <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li> -->
+            <li>
+              <div>
+                <button v-if="!isAuthenticated" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
+                  Sign in/Sign up
+                </button>
+                <button v-else type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
+                  Sign out
+                </button>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -113,12 +123,6 @@
               <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <!-- <div>
-                  <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
-                    Sign in/Sign up
-                  </button>
-                </div> -->
-
                 <div>
                   <button v-if="!isAuthenticated" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
                     Sign in/Sign up
@@ -139,15 +143,27 @@
   <div class="modal fade" id="authenticationModal" tabindex="-1" aria-labelledby="authenticationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <h1>testing</h1>
-        <authenticator>
-          We can conditionally render content based on auth state if needed
-        </authenticator>
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Basic authenticator without slots -->
+          <authenticator>
+            <template v-slot="{ user, signOut }">
+              <h1>Hello {{ user.username }}!</h1>
+              <button class="btn btn-primary" @click="signOut">Sign Out</button>
+            </template>
+          </authenticator>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
       </div>
     </div>
   </div>
-  <authenticator/>
-    <!-- main content  -->
+
+
+  <!-- main content  -->
     <div style="margin-top: 70px;">
       <!-- Only use grid layout on the Find Jobs page -->
       <div v-if='$route.path === "/find-jobs"' class="grid-container">
@@ -215,16 +231,13 @@ import { nextTick } from 'vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-
-
-
-import { Authenticator } from "@aws-amplify/ui-vue";
-  import "@aws-amplify/ui-vue/styles.css";
-
   import { Amplify } from 'aws-amplify';
   import outputs from '../amplify_outputs.json';
 
   Amplify.configure(outputs);
+
+  import { Authenticator } from "@aws-amplify/ui-vue";
+  import "@aws-amplify/ui-vue/styles.css";
 
   import { Hub } from 'aws-amplify/utils';
 const isAuthenticated = ref(false);
@@ -234,10 +247,10 @@ const closeModal = () => {
 
   console.log("close modal")
   // Select the element you want to fire the event on
-  const modalElement = document.getElementById('myModal');
+  const modalElement = document.getElementById('authenticationModal');
 
   // Create the event, ensuring it matches the Bootstrap naming convention
-  const event = new Event('hide.bs.modal', {
+  const event = new Event('dismiss.bs.modal', {
     bubbles: true, // Event will bubble up through the DOM tree
     cancelable: true // Event can be canceled
   });

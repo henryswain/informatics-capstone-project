@@ -77,6 +77,28 @@ const handleFileUpload = (event) => {
   }
 };
 
+import { getCurrentUser } from 'aws-amplify/auth';
+
+import { Hub } from 'aws-amplify/utils';
+
+Hub.listen('auth', async({ payload }) => {
+  console.log("Hub.listen called")
+  getUserInformation()
+})
+const currentUserInfo = ref({})
+onMounted(async() => {
+ getUserInformation()
+})
+const getUserInformation = async () => {
+  try {
+  const { username, userId, signInDetails } = await getCurrentUser();
+  currentUserInfo.value = {username: username,  userId: userId, signInDetails: signInDetails}
+  }
+  catch (e) {
+    console.log(e.message)
+    currentUserInfo.value = {username: undefined, userId: undefined, signInDetails: undefined}
+  }
+}
 // Delete experience, education, or qualification
 const deleteItem = (array, index) => {
   array.splice(index, 1);
@@ -87,6 +109,10 @@ const deleteItem = (array, index) => {
   <div class="profile-container">
     <!-- Profile Header -->
     <div class="profile-header">
+      <h5>username: {{currentUserInfo.username}}</h5>
+      <h5>userId: {{currentUserInfo.userId}}</h5>
+      <h5>signInDetails: {{currentUserInfo.signInDetails}}</h5>
+
       <div class="profile-picture-container">
         <label class="profile-upload">
           <input type="file" @change="handleFileUpload" hidden />

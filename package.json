@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@aws-amplify/ui-vue": "^4.2.30",
-    "aws-amplify": "^6.13.4",
+    "aws-amplify": "^6.13.5",
     "bootstrap": "^5.3.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
