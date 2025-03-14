@@ -112,13 +112,41 @@
               <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
               <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><router-link class="dropdown-item text-danger" to="/logout">Logout</router-link></li>
+              <li>
+                <!-- <div>
+                  <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
+                    Sign in/Sign up
+                  </button>
+                </div> -->
+
+                <div>
+                  <button v-if="!isAuthenticated" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
+                    Sign in/Sign up
+                  </button>
+                  <button v-else type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#authenticationModal">
+                    Sign out
+                  </button>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
 
+
+      <!-- authentication modal -->
+  <div class="modal fade" id="authenticationModal" tabindex="-1" aria-labelledby="authenticationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <h1>testing</h1>
+        <authenticator>
+          We can conditionally render content based on auth state if needed
+        </authenticator>
+      </div>
+    </div>
+  </div>
+  <authenticator/>
     <!-- main content  -->
     <div style="margin-top: 70px;">
       <!-- Only use grid layout on the Find Jobs page -->
@@ -186,6 +214,80 @@
 import { nextTick } from 'vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+
+
+
+
+import { Authenticator } from "@aws-amplify/ui-vue";
+  import "@aws-amplify/ui-vue/styles.css";
+
+  import { Amplify } from 'aws-amplify';
+  import outputs from '../amplify_outputs.json';
+
+  Amplify.configure(outputs);
+
+  import { Hub } from 'aws-amplify/utils';
+const isAuthenticated = ref(false);
+
+// Close the modal programmatically
+const closeModal = () => {
+
+  console.log("close modal")
+  // Select the element you want to fire the event on
+  const modalElement = document.getElementById('myModal');
+
+  // Create the event, ensuring it matches the Bootstrap naming convention
+  const event = new Event('hide.bs.modal', {
+    bubbles: true, // Event will bubble up through the DOM tree
+    cancelable: true // Event can be canceled
+  });
+
+  // Dispatch the event
+  modalElement.dispatchEvent(event);
+};
+import { getCurrentUser } from 'aws-amplify/auth';
+
+
+console.log("isAutheniccated.value", isAuthenticated.value)
+Hub.listen('auth', async({ payload }) => {
+  const { username, userId, signInDetails } = await getCurrentUser();
+
+  switch (payload.event) {
+    case 'signedIn':
+      isAuthenticated.value = true;
+      closeModal()
+      console.log('user have been signedIn successfully.');
+      console.log("username", username);
+      console.log("user id", userId);
+      console.log("sign-in details", signInDetails);
+      break;
+    case 'signedOut':
+      isAuthenticated.value = false;
+      closeModal()
+
+      console.log('user have been signedOut successfully.');
+      console.log("username", username);
+      console.log("user id", userId);
+      console.log("sign-in details", signInDetails);
+      break;
+    case 'tokenRefresh':
+      console.log('auth tokens have been refreshed.');
+      break;
+    case 'tokenRefresh_failure':
+      console.log('failure while refreshing auth tokens.');
+      break;
+    case 'signInWithRedirect':
+      console.log('signInWithRedirect API has successfully been resolved.');
+      break;
+    case 'signInWithRedirect_failure':
+      console.log('failure while trying to resolve signInWithRedirect API.');
+      break;
+    case 'customOAuthState':
+      logger.info('custom state returned from CognitoHosted UI');
+      break;
+  }
+});
+  
 const router = useRouter();
 
 const searchText = ref("");
