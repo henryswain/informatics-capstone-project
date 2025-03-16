@@ -128,11 +128,12 @@
                 </button>
                 <button
                   type="button"
-                  class="btn btn-success ms-2"
-                  @click="saveJob(item)"
+                  :class="isJobSaved(item['Job ID']) ? 'btn btn-danger ms-2' : 'btn btn-success ms-2'"
+                  @click="toggleJob(item)"
                 >
-                  {{ isJobSaved(item["Job ID"]) ? "Saved" : "Save Job" }}
+                  {{ isJobSaved(item["Job ID"]) ? "Remove Job" : "Save Job" }}
                 </button>
+
               </div>
 
               <!-- Modal -->
@@ -236,8 +237,21 @@ function saveJob(job) {
   }
 }
 
+function removeJob(jobId) {
+  savedJobs.value = savedJobs.value.filter(job => job.id !== jobId);
+  localStorage.setItem("savedJobs", JSON.stringify(savedJobs.value));
+}
+
+function toggleJob(job) {
+  if (isJobSaved(job["Job ID"])) {
+    removeJob(job["Job ID"]);
+  } else {
+    saveJob(job);
+  }
+}
+
 function isJobSaved(jobId) {
-  return savedJobs.value.some((job) => job.id === jobId);
+  return savedJobs.value.some(job => job.id === jobId);
 }
 
 // Parse CSV on mount

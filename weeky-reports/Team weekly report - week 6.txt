@@ -1,6 +1,8 @@
 
 Team weekly report
 • Team members and team number
+    Team 3: Henry, Marcus, Ryan, Tommy, and Magnolia
+
 
 • Team progress/achieved things/accomplished tasks/stories completed
 • Team blockers/issues
@@ -14,6 +16,7 @@ as a last step thing before the sprint
 o Stories completed
 o Progress report
 o Plan for next week
+
 • Team member 2:Marcus Bodnar
 o Stories completed
 - Worked on the filtering
@@ -24,14 +27,25 @@ o Progress report
 o Plan for next week
 - This will need to be discussed more with the team tomorrow via text. 
 Incase somebody had plans on working on something I wanted to as well
+
 • Team member 3:
 o Stories completed
 o Progress report
 o Plan for next week
-• Team member 4:
+
+• Team member 4: Ryan Witcraft
 o Stories completed
+- Added quality of life improvements for save/remove job
+- Functionality for savedJobs page
 o Progress report
+- Added descriptions modal from findJobs page to savedJobs page
+- Save job button gets toggled to a remove job button after selected
+- Expandable descriptions for description modals
 o Plan for next week
+- AWS integration for locally saved data
+- Quality of life improvements for job descriptions
+- Added information about how to apply/website links
+
 • Team member 5:
 o Stories completed
 o Progress report

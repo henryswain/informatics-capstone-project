@@ -173,11 +173,15 @@ import { getCurrentUser } from 'aws-amplify/auth';
 const isAuthenticated = ref(false);
 
 const closeModal = () => {
-  const modalElement = document.getElementById('myModal');
-  if (!modalElement) return;
-  const event = new Event('hide.bs.modal', {
-    bubbles: true,
-    cancelable: true
+
+  console.log("close modal")
+  // Select the element you want to fire the event on
+  const modalElement = document.getElementById('authenticationModal');
+
+  // Create the event, ensuring it matches the Bootstrap naming convention
+  const event = new Event('dismiss.bs.modal', {
+    bubbles: true, // Event will bubble up through the DOM tree
+    cancelable: true // Event can be canceled
   });
   modalElement.dispatchEvent(event);
 };
