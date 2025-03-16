@@ -334,7 +334,7 @@ function applyFilters() {
     });
   }
 
-  // 3) Career Level (exact match)
+  // 3) Career Level (needs to be exact)
   if (filters.value.careerLevels.length > 0) {
     results = results.filter((job) =>
       filters.value.careerLevels.includes(job["Career Level"])

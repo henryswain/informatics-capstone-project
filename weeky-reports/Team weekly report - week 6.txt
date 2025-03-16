@@ -1,0 +1,38 @@
+
+Team weekly report
+• Team members and team number
+
+• Team progress/achieved things/accomplished tasks/stories completed
+• Team blockers/issues
+The dark mode got messed up with the new pages added. Will be working on it
+as a last step thing before the sprint
+• Team tasks for next week
+
+• Meeting minutes - details of meetings
+
+• Team member 1:
+o Stories completed
+o Progress report
+o Plan for next week
+• Team member 2:Marcus Bodnar
+o Stories completed
+- Worked on the filtering
+- Moved code around for better management
+o Progress report
+- Got the filtering to work for the find-jobs page
+- Move the code from the app.vue into the FindJobs for filtering
+o Plan for next week
+- This will need to be discussed more with the team tomorrow via text. 
+Incase somebody had plans on working on something I wanted to as well
+• Team member 3:
+o Stories completed
+o Progress report
+o Plan for next week
+• Team member 4:
+o Stories completed
+o Progress report
+o Plan for next week
+• Team member 5:
+o Stories completed
+o Progress report
+o Plan for next week
