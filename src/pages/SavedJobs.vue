@@ -116,7 +116,7 @@ const fetchJobDetails = async (jobId) => {
         description: job["Job Description"] || "No description.",
         requirements: job["Minimum Qual Requirements"] || "Not specified.",
         skills: job["Preferred Skills"] || "Not specified.",
-        apply: job["To Apply"] ||
+        apply: job["To Apply"] || "Work in progress"
       };
     }
   } catch (error) {
