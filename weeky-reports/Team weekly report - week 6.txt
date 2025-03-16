@@ -12,10 +12,16 @@ as a last step thing before the sprint
 
 • Meeting minutes - details of meetings
 
-• Team member 1:
+• Team member 1: Henry
 o Stories completed
+- implemented Amplify gen 2 authenticator
 o Progress report
+- spent quite a while on implementing the amplify authenticator.
+- it was quite changenging because I had to figure out how to use the
+ second generation of the authenticator (my previous experience was with the first generation, which is quite different)
+- but it ended up working after a lot of troubleshooting
 o Plan for next week
+- we'll discuss after spring break
 
 • Team member 2:Marcus Bodnar
 o Stories completed
