@@ -23,8 +23,12 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" :id='`button_${item["Job ID"]}`' :data-bs-target='`#modal_${item["Job ID"]}`'>
               Learn More
             </button>
-            <button type="button" class="btn btn-success ms-2" @click="saveJob(item)">
-              {{ isJobSaved(item["Job ID"]) ? "Saved" : "Save Job" }}
+            <button 
+              type="button" 
+              :class="isJobSaved(item['Job ID']) ? 'btn btn-danger ms-2' : 'btn btn-success ms-2'"
+              @click="toggleJob(item)"
+            >
+              {{ isJobSaved(item["Job ID"]) ? "Remove Job" : "Save Job" }}
             </button>
           </div>
 
@@ -38,13 +42,23 @@
                 </div>
                 <div class="modal-body">
                   <h5>Job Description</h5>
-                  <p>{{ item["Job Description"] }}</p>
+                  <p>{{ isExpanded(item["Job ID"], 'description') ? item["Job Description"] : shortenText(item["Job Description"]) }}</p>
+                  <button class="btn btn-link" @click="toggleExpand(item['Job ID'], 'description')">
+                    {{ isExpanded(item["Job ID"], 'description') ? "Show Less" : "Show More" }}
+                  </button>
+
                   <h5>Basic Qual Requirements</h5>
-                  <p>{{ item["Minimum Qual Requirements"] }}</p>
+                  <p>{{ isExpanded(item["Job ID"], 'requirements') ? item["Minimum Qual Requirements"] : shortenText(item["Minimum Qual Requirements"]) }}</p>
+                  <button class="btn btn-link" @click="toggleExpand(item['Job ID'], 'requirements')">
+                    {{ isExpanded(item["Job ID"], 'requirements') ? "Show Less" : "Show More" }}
+                  </button>
+
                   <h5>Preferred Skills</h5>
-                  <p>{{ item["Preferred Skills"] }}</p>
-                  <h5>To Apply</h5>
-                  <p>{{ item["To Apply"] }}</p>
+                  <p>{{ isExpanded(item["Job ID"], 'skills') ? item["Preferred Skills"] : shortenText(item["Preferred Skills"]) }}</p>
+                  <button class="btn btn-link" @click="toggleExpand(item['Job ID'], 'skills')">
+                    {{ isExpanded(item["Job ID"], 'skills') ? "Show Less" : "Show More" }}
+                  </button>
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -81,6 +95,32 @@ const items = ref([]);
 // Load saved jobs from localStorage
 const savedJobs = ref(JSON.parse(localStorage.getItem('savedJobs')) || []);
 
+// Track if expanded
+const expanded = ref({});
+
+const isExpanded = (jobId, section) => expanded.value[jobId]?.[section] || false;
+
+const toggleExpand = (jobId, section) => {
+  if (!expanded.value[jobId]) {
+    expanded.value[jobId] = {};
+  }
+  expanded.value[jobId][section] = !expanded.value[jobId][section];
+};
+
+// Shorten text for preview
+const shortenText = (text, length = 150) => {
+  if (!text) return "";
+  return text.length > length ? text.slice(0, length) + "..." : text;
+};
+
+function toggleJob(job) {
+  if (isJobSaved(job["Job ID"])) {
+    removeJob(job["Job ID"]);
+  } else {
+    saveJob(job);
+  }
+}
+
 function saveJob(job) {
   if (!isJobSaved(job["Job ID"])) {
     savedJobs.value.push({
@@ -92,6 +132,12 @@ function saveJob(job) {
     localStorage.setItem('savedJobs', JSON.stringify(savedJobs.value));
   }
 }
+
+function removeJob(jobId) {
+  savedJobs.value = savedJobs.value.filter(job => job.id !== jobId);
+  localStorage.setItem('savedJobs', JSON.stringify(savedJobs.value));
+}
+
 
 // Check if a job is already saved
 function isJobSaved(jobId) {
