@@ -23,7 +23,7 @@ o Progress report
 o Plan for next week
 - we'll discuss after spring break
 
-• Team member 2:Marcus Bodnar
+• Team member 2: Marcus Bodnar
 o Stories completed
 - Worked on the filtering
 - Moved code around for better management
@@ -57,7 +57,15 @@ o Plan for next week
 - Quality of life improvements for job descriptions
 - Added information about how to apply/website links
 
-• Team member 5:
+• Team member 5: Magnolia Wallerich
 o Stories completed
+- Cleaned up our file structure a bit so that all of our now-depreciated WSGI files were not front and center
+- Created a homepage that is where users will first go to instead of immediately to the job search area
+- Created a first mockup of a logo that I plan to iterate on
+- Found resources to make other graphics for the site that will help me make something more permanent than the current placeholder homepage background
 o Progress report
+- Got the basic form of the homepage working so that we can iron out what we want on it
+- Got the first version of the first logo down and got some ideas on home I want to change it to further stylize it and started working on the background city graphic
 o Plan for next week
+- Continue to work on graphics for the site
+- See about implementing dark mode overrides for the various resources I plan to create
