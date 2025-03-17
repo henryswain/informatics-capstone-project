@@ -146,7 +146,7 @@
       </div>
     </div>
   </div>
-  <authenticator/>
+  <!-- <authenticator/> -->
     <!-- main content  -->
     <div style="margin-top: 70px;">
       <!-- Only use grid layout on the Find Jobs page -->

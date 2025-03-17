@@ -14,7 +14,13 @@ const loadProfile = () => {
     experience: [],
     education: [],
     skills: [],
-    qualifications: []
+    qualifications: [],
+    socialLinks: {
+      twitter: "",
+      linkedin: "",
+      github: "",
+      website: ""
+    }
   };
 };
 
@@ -85,103 +91,166 @@ const deleteItem = (array, index) => {
 
 <template>
   <div class="profile-container">
-    <!-- Profile Header -->
-    <div class="profile-header">
-      <div class="profile-picture-container">
-        <label class="profile-upload">
-          <input type="file" @change="handleFileUpload" hidden />
-          <img :src="user.profilePicture || '/user.png'" alt="Profile Picture" class="profile-picture" />
-        </label>
-        <button @click="handleFileUpload" class="btn btn-upload">Change Profile Picture</button>
+    <div class="profile-layout">
+      <!-- Profile Section (View Mode) -->
+      <div class="profile-view">
+        <div class="profile-header">
+          <div class="profile-picture-container">
+            <label class="profile-upload">
+              <input type="file" @change="handleFileUpload" hidden />
+              <img :src="user.profilePicture || '/user.png'" alt="Profile Picture" class="profile-picture" />
+            </label>
+          </div>
+          <h2>{{ user.name }}</h2>
+          <p class="headline">{{ user.headline }}</p>
+          <p>{{ user.about }}</p>
+        </div>
+
+        <div class="profile-sections">
+          <div class="profile-section">
+            <h3>Experience</h3>
+            <ul>
+              <li v-for="(job, index) in user.experience" :key="index">
+                <strong>{{ job.position }}</strong> at {{ job.company }} ({{ job.duration }})
+              </li>
+            </ul>
+          </div>
+
+          <div class="profile-section">
+            <h3>Education</h3>
+            <ul>
+              <li v-for="(edu, index) in user.education" :key="index">
+                <strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.year }})
+              </li>
+            </ul>
+          </div>
+
+          <div class="profile-section">
+            <h3>Skills</h3>
+            <ul>
+              <li v-for="(skill, index) in user.skills" :key="index">
+                <input type="checkbox" :checked="true" /> {{ skill }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social Media Links -->
+          <div class="profile-section" v-if="user.socialLinks.twitter || user.socialLinks.linkedin || user.socialLinks.github || user.socialLinks.website">
+            <h3>Social Links</h3>
+            <ul>
+              <li v-if="user.socialLinks.twitter">
+                <a :href="user.socialLinks.twitter" target="_blank">Twitter</a>
+              </li>
+              <li v-if="user.socialLinks.linkedin">
+                <a :href="user.socialLinks.linkedin" target="_blank">LinkedIn</a>
+              </li>
+              <li v-if="user.socialLinks.github">
+                <a :href="user.socialLinks.github" target="_blank">GitHub</a>
+              </li>
+              <li v-if="user.socialLinks.website">
+                <a :href="user.socialLinks.website" target="_blank">Website</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button v-if="!isEditing" class="btn btn-primary" @click="isEditing = true">Edit Profile</button>
+        </div>
       </div>
-      <template v-if="isEditing">
-        <input v-model="user.name" class="input-field" placeholder="Enter Name" />
-        <input v-model="user.headline" class="input-field" placeholder="Enter Headline" />
-      </template>
-      <template v-else>
-        <h2>{{ user.name }}</h2>
-        <p class="headline">{{ user.headline }}</p>
-      </template>
-    </div>
 
-    <!-- Profile Details Section -->
-    <div class="profile-details">
-      <h3>About</h3>
-      <template v-if="isEditing">
-        <textarea v-model="user.about" class="input-field" placeholder="Enter About"></textarea>
-      </template>
-      <template v-else>
-        <p>{{ user.about }}</p>
-      </template>
+      <!-- Editing Section -->
+      <div v-if="isEditing" class="profile-edit">
+        <div class="profile-edit-header">
+          <div class="profile-picture-container">
+            <label class="profile-upload">
+              <input type="file" @change="handleFileUpload" hidden />
+              <img :src="user.profilePicture || '/user.png'" alt="Profile Picture" class="profile-picture" />
+            </label>
+          </div>
+          <input v-model="user.name" class="input-field" placeholder="Enter Name" />
+          <input v-model="user.headline" class="input-field" placeholder="Enter Headline" />
+        </div>
 
-      <h3>Experience</h3>
-      <ul>
-        <li v-for="(job, index) in user.experience" :key="index">
-          <strong>{{ job.position }}</strong> at {{ job.company }} ({{ job.duration }})
-          <button v-if="isEditing" @click="deleteItem(user.experience, index)" class="btn btn-delete">Delete</button>
-        </li>
-      </ul>
-      <template v-if="isEditing">
-        <input v-model="newExperience.position" class="input-field" placeholder="Position" />
-        <input v-model="newExperience.company" class="input-field" placeholder="Company" />
-        <input v-model="newExperience.duration" class="input-field" placeholder="Duration" />
-        <button class="btn btn-secondary" @click="addExperience">Add Experience</button>
-      </template>
+        <div class="profile-edit-section">
+          <h3>About</h3>
+          <textarea v-model="user.about" class="input-field" placeholder="Enter About"></textarea>
+        </div>
 
-      <h3>Education</h3>
-      <ul>
-        <li v-for="(edu, index) in user.education" :key="index">
-          <strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.year }})
-          <button v-if="isEditing" @click="deleteItem(user.education, index)" class="btn btn-delete">Delete</button>
-        </li>
-      </ul>
-      <template v-if="isEditing">
-        <input v-model="newEducation.degree" class="input-field" placeholder="Degree" />
-        <input v-model="newEducation.institution" class="input-field" placeholder="Institution" />
-        <input v-model="newEducation.year" class="input-field" placeholder="Year" />
-        <button class="btn btn-secondary" @click="addEducation">Add Education</button>
-      </template>
+        <div class="profile-edit-section">
+          <h3>Experience</h3>
+          <ul>
+            <li v-for="(job, index) in user.experience" :key="index">
+              <strong>{{ job.position }}</strong> at {{ job.company }} ({{ job.duration }})
+              <button @click="deleteItem(user.experience, index)" class="btn btn-delete">Delete</button>
+            </li>
+          </ul>
+          <input v-model="newExperience.position" class="input-field" placeholder="Position" />
+          <input v-model="newExperience.company" class="input-field" placeholder="Company" />
+          <input v-model="newExperience.duration" class="input-field" placeholder="Duration" />
+          <button class="btn btn-secondary" @click="addExperience">Add Experience</button>
+        </div>
 
-      <h3>Skills</h3>
-      <ul>
-        <li v-for="(skill, index) in user.skills" :key="index">
-          <input type="checkbox" :checked="true" /> {{ skill }}
-        </li>
-      </ul>
-      <template v-if="isEditing">
-        <input v-model="newSkill" class="input-field" placeholder="Enter Skill" />
-        <button class="btn btn-secondary" @click="addSkill">Add Skill</button>
-      </template>
+        <div class="profile-edit-section">
+          <h3>Education</h3>
+          <ul>
+            <li v-for="(edu, index) in user.education" :key="index">
+              <strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.year }})
+              <button @click="deleteItem(user.education, index)" class="btn btn-delete">Delete</button>
+            </li>
+          </ul>
+          <input v-model="newEducation.degree" class="input-field" placeholder="Degree" />
+          <input v-model="newEducation.institution" class="input-field" placeholder="Institution" />
+          <input v-model="newEducation.year" class="input-field" placeholder="Year" />
+          <button class="btn btn-secondary" @click="addEducation">Add Education</button>
+        </div>
 
-      <h3>Qualifications</h3>
-      <ul>
-        <li v-for="(qualification, index) in user.qualifications" :key="index">
-          <input type="checkbox" :checked="true" /> {{ qualification }}
-          <button v-if="isEditing" @click="deleteItem(user.qualifications, index)" class="btn btn-delete">Delete</button>
-        </li>
-      </ul>
-      <template v-if="isEditing">
-        <input v-model="newQualification" class="input-field" placeholder="Enter Qualification" />
-        <button class="btn btn-secondary" @click="addQualification">Add Qualification</button>
-      </template>
-    </div>
+        <div class="profile-edit-section">
+          <h3>Skills</h3>
+          <ul>
+            <li v-for="(skill, index) in user.skills" :key="index">
+              <input type="checkbox" :checked="true" /> {{ skill }}
+            </li>
+          </ul>
+          <input v-model="newSkill" class="input-field" placeholder="Enter Skill" />
+          <button class="btn btn-secondary" @click="addSkill">Add Skill</button>
+        </div>
 
-    <!-- Action Buttons -->
-    <div class="profile-actions">
-      <button v-if="!isEditing" class="btn btn-primary" @click="isEditing = true">Edit Profile</button>
-      <button v-else class="btn btn-success" @click="saveProfile">Save</button>
+        <div class="profile-edit-section">
+          <h3>Social Links</h3>
+          <input v-model="user.socialLinks.twitter" class="input-field" placeholder="Enter Twitter URL" />
+          <input v-model="user.socialLinks.linkedin" class="input-field" placeholder="Enter LinkedIn URL" />
+          <input v-model="user.socialLinks.github" class="input-field" placeholder="Enter GitHub URL" />
+          <input v-model="user.socialLinks.website" class="input-field" placeholder="Enter Website URL" />
+        </div>
+
+        <div class="profile-actions">
+          <button class="btn btn-success" @click="saveProfile">Save</button>
+          <button class="btn btn-secondary" @click="isEditing = false">Cancel</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .profile-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-layout {
+  display: flex;
+  gap: 30px;
+}
+
+.profile-view,
+.profile-edit {
+  flex: 1;
 }
 
 .profile-header {
@@ -189,39 +258,70 @@ const deleteItem = (array, index) => {
 }
 
 .profile-picture-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  display: inline-block;
 }
 
 .profile-upload {
-  display: inline-block;
   cursor: pointer;
+  display: inline-block;
 }
 
 .profile-picture {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 2px solid #ddd;
+  border: 3px solid #ddd;
+  object-fit: cover;
 }
 
-.btn-upload {
-  background-color: #0073b1;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+.profile-sections {
+  margin-top: 30px;
+}
+
+.profile-section h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.profile-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-section ul li {
+  margin-bottom: 5px;
+}
+
+.profile-section a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.profile-section a:hover {
+  text-decoration: underline;
 }
 
 .input-field {
   width: 100%;
-  padding: 8px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #0073b1;
+}
+
+.btn-primary, .btn-success, .btn-secondary, .btn-delete {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-primary {
@@ -242,21 +342,14 @@ const deleteItem = (array, index) => {
 .btn-delete {
   background-color: #dc3545;
   color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-left: 10px;
 }
 
-.profile-details h3 {
-  font-size: 1.2em;
-  margin-top: 20px;
+.btn-primary:hover, .btn-success:hover, .btn-secondary:hover, .btn-delete:hover {
+  opacity: 0.8;
 }
 
 .profile-actions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+  text-align: center;
   margin-top: 20px;
 }
 </style>
