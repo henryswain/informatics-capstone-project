@@ -1,0 +1,58 @@
+
+Team weekly report
+• Team members and team number
+    Team 3: Henry, Marcus, Ryan, Tommy, and Magnolia
+
+
+• Team progress/achieved things/accomplished tasks/stories completed
+• Team blockers/issues
+The dark mode got messed up with the new pages added. Will be working on it
+as a last step thing before the sprint
+• Team tasks for next week
+
+• Meeting minutes - details of meetings
+
+• Team member 1: Henry
+o Stories completed
+- implemented Amplify gen 2 authenticator
+o Progress report
+- spent quite a while on implementing the amplify authenticator.
+- it was quite changenging because I had to figure out how to use the
+ second generation of the authenticator (my previous experience was with the first generation, which is quite different)
+- but it ended up working after a lot of troubleshooting
+o Plan for next week
+- we'll discuss after spring break
+
+• Team member 2:Marcus Bodnar
+o Stories completed
+- Worked on the filtering
+- Moved code around for better management
+o Progress report
+- Got the filtering to work for the find-jobs page
+- Move the code from the app.vue into the FindJobs for filtering
+o Plan for next week
+- This will need to be discussed more with the team tomorrow via text. 
+Incase somebody had plans on working on something I wanted to as well
+
+• Team member 3:
+o Stories completed
+o Progress report
+o Plan for next week
+
+• Team member 4: Ryan Witcraft
+o Stories completed
+- Added quality of life improvements for save/remove job
+- Functionality for savedJobs page
+o Progress report
+- Added descriptions modal from findJobs page to savedJobs page
+- Save job button gets toggled to a remove job button after selected
+- Expandable descriptions for description modals
+o Plan for next week
+- AWS integration for locally saved data
+- Quality of life improvements for job descriptions
+- Added information about how to apply/website links
+
+• Team member 5:
+o Stories completed
+o Progress report
+o Plan for next week
