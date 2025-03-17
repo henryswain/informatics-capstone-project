@@ -34,10 +34,15 @@ o Plan for next week
 - This will need to be discussed more with the team tomorrow via text. 
 Incase somebody had plans on working on something I wanted to as well
 
-• Team member 3:
+• Team member 3: Tommy
 o Stories completed
+- Allowed for users to see what their profile page would look like
+- Messed with CareerQuest screen, adding more design to it
+- Attempted with helping amplify authenticator
 o Progress report
+- Functionality, back-end, connecting parts together
 o Plan for next week
+- Focus more on tackling filters, and tackling authenticator to connect to profile page!
 
 • Team member 4: Ryan Witcraft
 o Stories completed
