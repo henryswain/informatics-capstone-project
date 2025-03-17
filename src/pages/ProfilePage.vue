@@ -1,5 +1,7 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue';
+import { getCurrentUser } from 'aws-amplify/auth';
+import { Hub } from 'aws-amplify/utils';
 
 // Load profile data from localStorage
 const loadProfile = () => {
@@ -83,28 +85,21 @@ const handleFileUpload = (event) => {
   }
 };
 
-import { getCurrentUser } from 'aws-amplify/auth';
+const currentUserInfo = ref({});
+onMounted(async () => {
+  getUserInformation();
+});
 
-import { Hub } from 'aws-amplify/utils';
-
-Hub.listen('auth', async({ payload }) => {
-  console.log("Hub.listen called")
-  getUserInformation()
-})
-const currentUserInfo = ref({})
-onMounted(async() => {
- getUserInformation()
-})
 const getUserInformation = async () => {
   try {
-  const { username, userId, signInDetails } = await getCurrentUser();
-  currentUserInfo.value = {username: username,  userId: userId, signInDetails: signInDetails}
-  }
-  catch (e) {
-    console.log(e.message)
-    currentUserInfo.value = {username: undefined, userId: undefined, signInDetails: undefined}
+    const { username, userId, signInDetails } = await getCurrentUser();
+    currentUserInfo.value = { username, userId, signInDetails };
+  } catch (e) {
+    console.log(e.message);
+    currentUserInfo.value = { username: undefined, userId: undefined, signInDetails: undefined };
   }
 }
+
 // Delete experience, education, or qualification
 const deleteItem = (array, index) => {
   array.splice(index, 1);
@@ -113,11 +108,14 @@ const deleteItem = (array, index) => {
 
 <template>
   <div class="profile-container">
-<<<<<<< HEAD
     <div class="profile-layout">
       <!-- Profile Section (View Mode) -->
       <div class="profile-view">
         <div class="profile-header">
+          <h5>username: {{ currentUserInfo.username }}</h5>
+          <h5>userId: {{ currentUserInfo.userId }}</h5>
+          <h5>signInDetails: {{ currentUserInfo.signInDetails }}</h5>
+
           <div class="profile-picture-container">
             <label class="profile-upload">
               <input type="file" @change="handleFileUpload" hidden />
@@ -135,6 +133,7 @@ const deleteItem = (array, index) => {
             <ul>
               <li v-for="(job, index) in user.experience" :key="index">
                 <strong>{{ job.position }}</strong> at {{ job.company }} ({{ job.duration }})
+                <button @click="deleteItem(user.experience, index)" class="btn btn-delete">Delete</button>
               </li>
             </ul>
           </div>
@@ -144,6 +143,7 @@ const deleteItem = (array, index) => {
             <ul>
               <li v-for="(edu, index) in user.education" :key="index">
                 <strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.year }})
+                <button @click="deleteItem(user.education, index)" class="btn btn-delete">Delete</button>
               </li>
             </ul>
           </div>
@@ -180,20 +180,6 @@ const deleteItem = (array, index) => {
         <div class="profile-actions">
           <button v-if="!isEditing" class="btn btn-primary" @click="isEditing = true">Edit Profile</button>
         </div>
-=======
-    <!-- Profile Header -->
-    <div class="profile-header">
-      <h5>username: {{currentUserInfo.username}}</h5>
-      <h5>userId: {{currentUserInfo.userId}}</h5>
-      <h5>signInDetails: {{currentUserInfo.signInDetails}}</h5>
-
-      <div class="profile-picture-container">
-        <label class="profile-upload">
-          <input type="file" @change="handleFileUpload" hidden />
-          <img :src="user.profilePicture || '/user.png'" alt="Profile Picture" class="profile-picture" />
-        </label>
-        <button @click="handleFileUpload" class="btn btn-upload">Change Profile Picture</button>
->>>>>>> c28c7196c94ceb0876056938e4c73aa2482ff71b
       </div>
 
       <!-- Editing Section -->
