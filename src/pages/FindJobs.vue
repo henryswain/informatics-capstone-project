@@ -220,7 +220,7 @@ const filteredJobs = ref([]);
 const currentPage = ref(1);
 const itemsPerPage = ref(10);
 
-const searchText = ref(props.query || "");
+// const searchText = ref(props.query || "");
 
 // For saved jobs
 const savedJobs = ref(JSON.parse(localStorage.getItem("savedJobs")) || []);
@@ -306,6 +306,7 @@ const filters = ref({
   industries: [],
   careerLevels: [],
   location: "",
+  searchText: props.query || ""
 });
 
 // Toggle a filter
@@ -319,7 +320,7 @@ function toggleFilter(filterCategory, option) {
 }
 
 // Apply filter logic
-function applyFilters() {
+function applyFilters(newQueryString = "") {
   let results = [...allJobs.value];
 
   // Convert "Full-Time"/"Part-Time" to "F"/"P"
@@ -363,6 +364,18 @@ function applyFilters() {
     );
   }
 
+  if (newQueryString.length > 0) {
+    // console.log("filters.value.searchText.length > 0: ", filters.value.searchText)
+    // const searchText2 = filters.value.searchText.toLowerCase();
+    const newString = newQueryString.toLowerCase()
+    results = results.filter((job) => {
+      if (job["Civil Service Title"]?.toLowerCase()?.includes(newString) || job["Job Description"]?.toLowerCase()?.includes(newString) || job["Minimum Qual Requirements"]?.toLowerCase()?.includes(newString) || job["Preferred Skills"]?.toLowerCase().includes(newString)) {
+        return true
+      }
+    });
+  }
+
+
   filteredJobs.value = results;
   currentPage.value = 1;
 }
@@ -371,9 +384,13 @@ function applyFilters() {
 watch(
   () => props.query,
   (newQueryString) => {
+    console.log("watch called")
     if (newQueryString) {
-      applyFilters();
+      console.log("newQueryString: ", newQueryString)
+      console.log("inside if statement")
+      applyFilters(newQueryString);
     } else {
+      console.log("inside else statement")
       filteredJobs.value = [...allJobs.value];
     }
   }

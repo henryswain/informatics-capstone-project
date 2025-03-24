@@ -146,14 +146,9 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-  <!-- <authenticator/> -->
-    <!-- main content  -->
-=======
 
 
   <!-- main content  -->
->>>>>>> c28c7196c94ceb0876056938e4c73aa2482ff71b
     <div style="margin-top: 70px;">
       <router-view />
     </div>
