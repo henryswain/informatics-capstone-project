@@ -64,7 +64,7 @@
             </div>
 
             <!-- Apply Filters -->
-            <button class="btn btn-primary w-100 mt-3" @click="applyFilters">
+            <button class="btn btn-primary w-100 mt-3" @click="applyFilters(props.query)">
               Apply Filters
             </button>
           </div>
