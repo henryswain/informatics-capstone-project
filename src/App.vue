@@ -3,7 +3,14 @@
     <!-- Desktop navbar -->
     <nav class="navbar navbar-expand bg-primary navbar-dark fixed-top d-none d-lg-flex">
       <div class="container-fluid">
-        <router-link class="navbar-brand fw-bold" to="/home-page">CareerQuest</router-link>
+        <router-link class="navbar-brand fw-bold" to="/home-page">
+          <img
+            src="@/assets/CQ_logo_darkmode.svg"
+            style="width: 150px;"
+            class="logo"
+            alt="CareerQuest logo"
+            />
+        </router-link>
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
             <router-link class="nav-link" to="/find-jobs">Find Jobs</router-link>

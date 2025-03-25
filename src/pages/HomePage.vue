@@ -1,12 +1,11 @@
 <template>
   <div class="home-page">
+    <br>
     <div class="center-logo-area">
-      <img 
-        class = "home-page-logo"
-        src="@/assets/CQ_logo.svg"
-      />
+      <img class = "home-page-logo"/>
       <br>
       <h4>Taking your job search to new heights</h4>
+      <br>
     </div>
   </div>
 </template>
@@ -45,46 +44,49 @@ onMounted(() => {
 
 <!-- Scoped style for homepage -->
 <style scoped>
-.body {
-  background-image: url("src/assets/home-page-bg-TEMP.jpg");
+
+.home-page {
+  background-image: url("@/assets/bg_lightmode.png");
   background-repeat: no-repeat;
   background-size:cover;
-  width: auto;
-  height: auto;
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  top: 50px;
+  left: 0px;
+  z-index: 1000;
 }
 
 .center-logo-area {
-  
+  backdrop-filter: blur(6px);
   margin-left: auto;
   margin-right: auto;
-  top: 50%;
-  bottom: 50%;
+  max-width: 1000px;
   text-align: center;
+  border-radius: 50px;
 }
 
 .home-page-logo {
+  content: url("@/assets/CQ_logo_lightmode.svg");
   max-width: 1000px;
-  vertical-align: middle;
-  margin: auto;
   padding: 50px;
-  fill: rgb(0, 0, 0);
-}
-
-.search-box {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.search-button {
-  fill :rgb(61, 67, 151);
 }
 </style>
 
 <!-- Global dark mode overrides -->
 <style>
 .dark-mode {
-  background-color: #121212;
   color: #ffffff;
 }
+.dark-mode .home-page {
+  background-color: #121212;
+  background-image: url("src/assets/bg_darkmode.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.dark-mode .home-page-logo {
+  content: url("@/assets/CQ_logo_darkmode.svg");
+}
+
 </style>
