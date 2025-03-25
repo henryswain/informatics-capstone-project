@@ -31,5 +31,4 @@ coverage
 
 # amplify
 .amplify
-amplify_outputs*
 amplifyconfiguration*

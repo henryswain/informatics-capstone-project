@@ -160,9 +160,29 @@ import { ref, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 
   import { Amplify } from 'aws-amplify';
-  import outputs from '../amplify_outputs.json';
+  // import outputs from '../amplify_outputs.json';
 
-  Amplify.configure(outputs);
+  // Amplify.configure(outputs);
+
+
+  import originalConfig from '../amplify_outputs.json';
+
+// Function to replace env variable placeholders
+const resolveConfig = (config) => {
+  const replacer = (_, value) => {
+    if (typeof value === 'string' && value.startsWith('${') && value.endsWith('}')) {
+      const envKey = value.slice(2, -1);
+      return import.meta.env[envKey] || '';
+    }
+    return value;
+  };
+
+  return JSON.parse(JSON.stringify(config, replacer));
+};
+
+const amplifyConfig = resolveConfig(originalConfig);
+
+Amplify.configure(amplifyConfig)
 
   import { Authenticator } from "@aws-amplify/ui-vue";
   import "@aws-amplify/ui-vue/styles.css";
