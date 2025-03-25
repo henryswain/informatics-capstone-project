@@ -375,4 +375,5 @@ const deleteItem = (array, index) => {
   text-align: center;
   margin-top: 20px;
 }
+
 </style>

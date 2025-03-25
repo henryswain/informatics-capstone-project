@@ -218,7 +218,11 @@ const router = useRouter();
 const allJobs = ref([]);
 const filteredJobs = ref([]);
 const currentPage = ref(1);
-const itemsPerPage = ref(10);
+// this saves the itemsperpage locally so we can change it in the settings
+const itemsPerPage = ref(
+  JSON.parse(localStorage.getItem('userSettings'))?.itemsPerPage || 10
+);
+
 
 // const searchText = ref(props.query || "");
 
@@ -472,58 +476,5 @@ watch(
 .modal-dialog {
   margin-top: 80px;
 }
-.dark-mode .form-control,
-.dark-mode input[type="text"],
-.dark-mode input[type="email"],
-.dark-mode input[type="search"],
-.dark-mode input[type="password"],
-.dark-mode select,
-.dark-mode textarea,
-.dark-mode .form-control {
-  background-color: #444444 !important;
-  color: #ffffff !important;
-  border-color: #555555 !important;
-}
-.dark-mode .form-control::placeholder,
-.dark-mode input[type="text"]::placeholder,
-.dark-mode input[type="email"]::placeholder,
-.dark-mode input[type="search"]::placeholder,
-.dark-mode input[type="password"]::placeholder,
-.dark-mode select::placeholder,
-.dark-mode textarea::placeholder,
-.dark-mode .form-control::placeholder {
-  color: #cccccc !important;
-}
-.dark-mode .modal-content,
-.dark-mode .modal-header,
-.dark-mode .modal-body,
-.dark-mode .modal-footer {
-  background-color: #333333 !important;
-  color: #ffffff !important;
-  border-color: #555555 !important;
-}
-.dark-mode .btn-close {
-  filter: invert(1);
-}
-.dark-mode .filter-section,
-.dark-mode .filter-section * {
-  background-color: #333333 !important;
-  color: #ffffff !important;
-  border-color: #555555 !important;
-}
-.dark-mode .filter-card {
-  background-color: #444444 !important;
-  color: #ffffff !important;
-  border-color: #555555 !important;
-}
-.dark-mode .filter-box {
-  background-color: #444444 !important;
-  color: #ffffff !important;
-  border-color: #555555 !important;
-}
-.dark-mode .filter-box.active {
-  background-color: #007bff !important;
-  color: #ffffff !important;
-  border-color: #007bff !important;
-}
+
 </style>

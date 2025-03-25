@@ -89,7 +89,7 @@
             />
             <button class="btn btn-outline-light" type="text">Search</button>
           </form>
-          <div class="dropdown w-100 d-flex justify-content-center">
+          <div class="dropdown w-100 d-flex justify-content-end">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
               <img
                 src="@/assets/user.png"
@@ -289,4 +289,64 @@ async function handleSubmit() {
 .dark-mode .btn-close {
   filter: invert(1);
 }
+/* For Saved Jobs cards */
+.dark-mode .saved-jobs-container,
+.dark-mode .saved-jobs-container * {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+/* For the Find Jobs page container */
+.dark-mode .find-jobs-page,
+.dark-mode .find-jobs-page * {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+
+
+/* Dark mode OVR for ProfilePage */
+.dark-mode .profile-container {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+.dark-mode .profile-container * {
+  color: #ffffff !important;
+}
+
+.dark-mode .profile-container .input-field,
+.dark-mode .profile-container input,
+.dark-mode .profile-container textarea,
+.dark-mode .profile-container select {
+  background-color: #444444 !important;
+  color: #ffffff !important;
+  border-color: #555555 !important;
+}
+
+.dark-mode .profile-container a {
+  color: #ffffff !important;
+  }
+
+/* Darkmode for dropdown */
+.dark-mode .dropdown-menu {
+  background-color: #333333 !important; 
+  border-color: #444444 !important;     
+}
+
+/* Changes dropdown text to white */
+.dark-mode .dropdown-menu .dropdown-item {
+  background-color: #333333 !important; 
+  color: #ffffff !important;            
+}
+
+/* For sign up link */
+.dark-mode .btn-link {
+  color: #ffffff !important;
+}
+
+
 </style>
